@@ -14,3 +14,6 @@ services:
     app.security.activator:
         class: AppBundle\Utils\ActivateUtils
         arguments: ['@service_container']
+    app.security.restore:
+        class: AppBundle\Utils\RestoreUtils
+        arguments: ['@service_container','@app.security.tokengenerator','@swiftmailer.mailer','@templating','@router']

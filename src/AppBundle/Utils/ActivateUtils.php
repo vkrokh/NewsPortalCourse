@@ -26,4 +26,6 @@ class ActivateUtils
         $tokenRepository = $doctrine->getRepository('AppBundle:Token');
         $tokenRepository->activateUserByToken($token);
     }
+
+
 }

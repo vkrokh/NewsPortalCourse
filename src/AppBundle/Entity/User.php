@@ -49,6 +49,14 @@ class User implements AdvancedUserInterface
     protected $enabled;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="dispatch", type="boolean")
+     */
+    protected $dispatch = true;
+
+
+    /**
      * @ORM\Column(name="roles", type="array")
      */
     protected $roles;
@@ -234,5 +242,29 @@ class User implements AdvancedUserInterface
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * Set dispatch
+     *
+     * @param boolean $dispatch
+     *
+     * @return User
+     */
+    public function setDispatch($dispatch)
+    {
+        $this->dispatch = $dispatch;
+
+        return $this;
+    }
+
+    /**
+     * Get dispatch
+     *
+     * @return boolean
+     */
+    public function getDispatch()
+    {
+        return $this->dispatch;
     }
 }

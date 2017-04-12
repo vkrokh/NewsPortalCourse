@@ -21,22 +21,39 @@ class TokenRepository extends \Doctrine\ORM\EntityRepository
     {
         $entityManager = $this->getEntityManager();
         $tokenArray = $entityManager->getRepository('AppBundle:Token')->findByToken($token);
-        if(count($tokenArray)!= 0 ){
+        if (count($tokenArray) != 0) {
             $fullyToken = $tokenArray[0];
             $user = $fullyToken->getUser();
-            if($this->checkToken($fullyToken)){
+            if ($this->checkToken($fullyToken)) {
                 $user->setEnabled(true);
             }
-            $entityManager->remove($fullyToken);
             $entityManager->persist($user);
-            $entityManager->flush();
+            $this->removeToken($fullyToken);
+
         }
     }
 
-    private function checkToken(Token $fullyToken)
+    public function removeToken(Token $fullyToken)
     {
-        $diff = date_diff($fullyToken->getDate(),date_create(date('Y-m-d H:i:s')));
-        if($diff->days < 3){
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($fullyToken);
+        $entityManager->flush();
+    }
+
+    public function getToken(string $token)
+    {
+        $entityManager = $this->getEntityManager();
+        $tokenArray = $entityManager->getRepository('AppBundle:Token')->findByToken($token);
+        if (count($tokenArray) != 0) {
+            $fullyToken = $tokenArray[0];
+            return $fullyToken;
+        }
+    }
+
+    public function checkToken(Token $fullyToken)
+    {
+        $diff = date_diff($fullyToken->getDate(), date_create(date('Y-m-d H:i:s')));
+        if ($diff->days < 3) {
             return true;
         }
         return false;
