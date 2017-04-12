@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Entity\UserRecovery;
+use AppBundle\Form\RecoveryType;
 use AppBundle\Form\RecoveryViewType;
 use AppBundle\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,7 +26,7 @@ class UserController extends Controller
         $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('user/login.html.twig', array(
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error' => $error,
         ));
     }
 
@@ -42,11 +43,11 @@ class UserController extends Controller
             $registerService->registerUser($user);
             return $this->redirectToRoute('user_login');
         }
-        $errors = (string) $form->getErrors(true);
+        $errors = (string)$form->getErrors(true);
         return $this->render(
             'user/register.html.twig',
             array('form' => $form->createView(),
-                'errors'=>$errors)
+                'errors' => $errors)
         );
     }
 
@@ -77,10 +78,9 @@ class UserController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $restoreService = $this->get('app.security.restore');
-            if($restoreService->isEmailExist($user->getEmail())){
+            if ($restoreService->isEmailExist($user->getEmail())) {
                 return $this->redirectToRoute('user_login');
             }
-            var_dump($user);
             return $this->render(
                 'user/recoveryView.html.twig',
                 array('form' => $form->createView())
@@ -95,8 +95,23 @@ class UserController extends Controller
     /**
      * @Route("/recovery/{token}", name="user_recovery")
      */
-    public function recoveryAction(string $token)
+    public function recoveryAction(Request $request, string $token)
     {
+        $user = new UserRecovery();
+        $restoreService = $this->get('app.security.restore');
+        if ($fullyToken = $restoreService->checkTokenInDataBase($token)) {
+            $form = $this->createForm(RecoveryType::class, $user);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $restoreService->recoveryPassword($user->getPlainPassword(), $fullyToken);
+                return $this->redirectToRoute('user_login');
+            }
+            return $this->render(
+                'user/recovery.html.twig',
+                array('form' => $form->createView())
+            );
+        }
+        return $this->redirectToRoute('user_login');
     }
 
 

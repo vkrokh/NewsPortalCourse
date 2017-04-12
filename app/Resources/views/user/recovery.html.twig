@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Recovery{% endblock %}
+
+{% block body %}
+    <div class="container form-group">
+
+        {{ form_start(form) }}
+
+        {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+
+        <button type="submit" class="form-control btn-success">Recovery</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
