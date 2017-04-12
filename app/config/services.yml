@@ -1,0 +1,16 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    app.security.register:
+            class: AppBundle\Utils\RegistrationUtils
+            arguments: ['@service_container','@app.security.tokengenerator','@swiftmailer.mailer','@templating','@router']
+
+    app.security.tokengenerator:
+        class: AppBundle\Utils\TokenGeneratorUtils
+
+    app.security.activator:
+        class: AppBundle\Utils\ActivateUtils
+        arguments: ['@service_container']
