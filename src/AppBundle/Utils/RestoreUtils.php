@@ -39,9 +39,9 @@ class RestoreUtils
     {
         $doctrine = $this->container->get('doctrine');
         $userRepository = $doctrine->getRepository('AppBundle:User');
-        $userArray = $userRepository->findUserByEmail($email);
-        if (count($userArray) != 0) {
-            $this->createToken($userArray[0]);
+        $user = $userRepository->findUserByEmail($email);
+        if (isset($user)) {
+            $this->createToken($user);
             return true;
         }
         return null;
@@ -90,8 +90,15 @@ class RestoreUtils
             ->setFrom($this->container->getParameter('mailer_user'))
             ->setTo($userEmail)
             ->setBody(
-                $this->render->render('user/recoveryMail.html.twig',
-                    array('url' => $this->router->generate('user_recovery', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_PATH))
+                $this->render->render(
+                    'user/recoveryMail.html.twig',
+                    array(
+                        'url' => $this->router->generate(
+                            'user_recovery',
+                            array('token' => $token),
+                            UrlGeneratorInterface::ABSOLUTE_PATH
+                        )
+                    )
                 ),
                 'text/html'
             );

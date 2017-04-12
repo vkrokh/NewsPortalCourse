@@ -24,7 +24,7 @@ class RegistrationUtils
     private $render;
     private $router;
 
-    public function __construct(ContainerInterface $container,TokenGeneratorUtils $tokenGenerator, \Swift_Mailer $mailer, TwigEngine $render, Router $router)
+    public function __construct(ContainerInterface $container, TokenGeneratorUtils $tokenGenerator, \Swift_Mailer $mailer, TwigEngine $render, Router $router)
     {
         $this->container = $container;
         $this->mailer = $mailer;
@@ -58,18 +58,26 @@ class RegistrationUtils
         $token->setUser($user);
         $token->setDate(date_create(date('Y-m-d H:i:s')));
         $this->sendTokenToDataBase($token);
-        $this->sendEmailToUser($user->getEmail(),$token->getToken());
+        $this->sendEmailToUser($user->getEmail(), $token->getToken());
     }
 
-    private function sendEmailToUser(string $userEmail,string $token)
+    private function sendEmailToUser(string $userEmail, string $token)
     {
         $message = \Swift_Message::newInstance(null)
             ->setSubject('Welcome')
             ->setFrom($this->container->getParameter('mailer_user'))
             ->setTo($userEmail)
             ->setBody(
-                $this->render->render('user/mail.html.twig',
-                    array('url'=>$this->router->generate('user_activate',array('token'=>$token),UrlGeneratorInterface::ABSOLUTE_PATH))
+                $this->render->render(
+                    'user/mail.html.twig',
+                    array
+                    (
+                        'url' => $this->router->generate(
+                            'user_activate',
+                            array('token' => $token),
+                            UrlGeneratorInterface::ABSOLUTE_PATH
+                        )
+                    )
                 ),
                 'text/html'
             );

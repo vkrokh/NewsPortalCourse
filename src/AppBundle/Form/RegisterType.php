@@ -25,18 +25,23 @@ class RegisterType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
-            ->add('plainPassword', RepeatedType::class, [
+            ->add(
+                'plainPassword', RepeatedType::class,
+                [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Password'],
                 'second_options' => ['label' => 'Confirm Password'],
                 'invalid_message' => 'Passwords do not match.',
-            ]);
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => User::class,
-        ));
+            )
+        );
     }
 }

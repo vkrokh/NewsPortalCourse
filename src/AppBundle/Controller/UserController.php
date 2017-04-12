@@ -24,10 +24,13 @@ class UserController extends Controller
         $authenticationUtils = $this->get('security.authentication_utils');
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('user/login.html.twig', array(
+        return $this->render(
+            'user/login.html.twig',
+            array(
             'last_username' => $lastUsername,
             'error' => $error,
-        ));
+            )
+        );
     }
 
     /**
@@ -103,7 +106,10 @@ class UserController extends Controller
             $form = $this->createForm(RecoveryType::class, $user);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
-                $restoreService->recoveryPassword($user->getPlainPassword(), $fullyToken);
+                $restoreService->recoveryPassword(
+                    $user->getPlainPassword(),
+                    $fullyToken
+                );
                 return $this->redirectToRoute('user_login');
             }
             return $this->render(

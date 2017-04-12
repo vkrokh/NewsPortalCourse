@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     /**
      * @Route("/",name="homepage")
-    */
+     */
     public function indexAction()
     {
         return $this->render('index/homepage.html.twig');

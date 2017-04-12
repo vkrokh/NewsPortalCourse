@@ -20,9 +20,9 @@ class TokenRepository extends \Doctrine\ORM\EntityRepository
     public function activateUserByToken(string $token)
     {
         $entityManager = $this->getEntityManager();
-        $tokenArray = $entityManager->getRepository('AppBundle:Token')->findByToken($token);
-        if (count($tokenArray) != 0) {
-            $fullyToken = $tokenArray[0];
+        $fullyToken = $entityManager->
+        getRepository('AppBundle:Token')->findOneByToken($token);
+        if (isset($fullyToken)) {
             $user = $fullyToken->getUser();
             if ($this->checkToken($fullyToken)) {
                 $user->setEnabled(true);
@@ -43,9 +43,9 @@ class TokenRepository extends \Doctrine\ORM\EntityRepository
     public function getToken(string $token)
     {
         $entityManager = $this->getEntityManager();
-        $tokenArray = $entityManager->getRepository('AppBundle:Token')->findByToken($token);
-        if (count($tokenArray) != 0) {
-            $fullyToken = $tokenArray[0];
+        $fullyToken = $entityManager->
+        getRepository('AppBundle:Token')->findOneByToken($token);
+        if (isset($fullyToken)) {
             return $fullyToken;
         }
     }

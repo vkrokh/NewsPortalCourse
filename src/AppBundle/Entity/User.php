@@ -36,8 +36,10 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="string", length=40)
-     * @Assert\Length(max=16, min=4, minMessage = "Name can not be shorter than 4 characters.",
-     *     maxMessage = "Name can not be longer than 16 characters.")
+     * @Assert\Length(max=16,
+     *     min=4, minMessage = "Name can not be shorter than 4 characters.",
+     *     maxMessage = "Name can not be longer than 16 characters."
+     * )
      */
     protected $name;
 
@@ -67,10 +69,11 @@ class User implements AdvancedUserInterface
     protected $password;
 
     /**
-     * @Assert\Length(max=4096, min=6, minMessage = "Password can not be shorter than 6 characters.")
+     * @Assert\Length(max=4096, min=6,
+     *     minMessage = "Password can not be shorter than 6 characters."
+     * )
      */
     protected $plainPassword;
-
 
 
     public function isAccountNonExpired()
@@ -105,7 +108,7 @@ class User implements AdvancedUserInterface
 
     public function getPassword()
     {
-       return $this->password;
+        return $this->password;
     }
 
 
@@ -219,7 +222,6 @@ class User implements AdvancedUserInterface
 
     /**
      * Set roles
-     *
      *
      * @return User
      */
