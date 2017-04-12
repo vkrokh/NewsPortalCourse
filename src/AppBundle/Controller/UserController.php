@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\UserRecovery;
+use AppBundle\Form\RecoveryViewType;
 use AppBundle\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,6 +64,38 @@ class UserController extends Controller
      * @Route("/logout", name="user_logout")
      */
     public function logoutAction()
+    {
+    }
+
+    /**
+     * @Route("/recovery", name="user_recovery_view")
+     */
+    public function recoveryViewAction(Request $request)
+    {
+        $user = new UserRecovery();
+        $form = $this->createForm(RecoveryViewType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $restoreService = $this->get('app.security.restore');
+            if($restoreService->isEmailExist($user->getEmail())){
+                return $this->redirectToRoute('user_login');
+            }
+            var_dump($user);
+            return $this->render(
+                'user/recoveryView.html.twig',
+                array('form' => $form->createView())
+            );
+        }
+        return $this->render(
+            'user/recoveryView.html.twig',
+            array('form' => $form->createView())
+        );
+    }
+
+    /**
+     * @Route("/recovery/{token}", name="user_recovery")
+     */
+    public function recoveryAction(string $token)
     {
     }
 

@@ -16,4 +16,12 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         $entityManager->persist($user);
         $entityManager->flush();
     }
+
+    public function findUserByEmail(string $email)
+    {
+        $entityManager = $this->getEntityManager();
+        $userRepository = $entityManager->getRepository('AppBundle:User');
+        $userArray = $userRepository->findByEmail($email);
+        return $userArray;
+    }
 }
