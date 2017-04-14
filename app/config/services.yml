@@ -14,3 +14,9 @@ services:
     app.security.activator:
         class: AppBundle\Utils\ActivateUtils
         arguments: ['@service_container']
+    app.security.showcategory:
+        class: AppBundle\Utils\CategoryUtils
+        arguments: ['@service_container']
+    app.security.shownews:
+        class: AppBundle\Utils\NewsUtils
+        arguments: ['@service_container']

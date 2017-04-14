@@ -41,6 +41,7 @@ twig:
 
 # Doctrine Configuration
 doctrine:
+
     dbal:
         driver: pdo_mysql
         host: '%database_host%'
