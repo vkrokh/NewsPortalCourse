@@ -11,8 +11,10 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\JoinTable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
@@ -46,6 +48,12 @@ class Category
      * @ORM\OneToMany(targetEntity="Category", mappedBy="parentCategory")
      */
     private $subCategory;
+
+    /**
+     * @ManyToMany(targetEntity="News", inversedBy="category")
+     * @JoinTable(name="news_category")
+     */
+    private $news;
 
     /**
      * @return mixed
@@ -119,5 +127,39 @@ class Category
     public function getSubCategory()
     {
         return $this->subCategory;
+    }
+
+    /**
+     * Add news
+     *
+     * @param \AppBundle\Entity\News $news
+     *
+     * @return Category
+     */
+    public function addNews(\AppBundle\Entity\News $news)
+    {
+        $this->news[] = $news;
+
+        return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param \AppBundle\Entity\News $news
+     */
+    public function removeNews(\AppBundle\Entity\News $news)
+    {
+        $this->news->removeElement($news);
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNews()
+    {
+        return $this->news;
     }
 }
