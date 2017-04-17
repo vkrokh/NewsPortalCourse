@@ -11,12 +11,14 @@ namespace AppBundle\Entity;
 class NewsRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getNews(string $id)
+    public function getNews(int $id)
     {
         $entityManager = $this->getEntityManager();
-        $category = $entityManager->getRepository('AppBundle:News')->findOneById($id);
-        return $category;
+        $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
+        return $news;
     }
+
+
 
 
 }

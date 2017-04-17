@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Query\ResultSetMapping;
+
 /**
  * CategoryRepository
  *
@@ -18,10 +20,20 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
         $entityManager->flush();
     }
 
-    public function getCategory(string $name)
+    public function getCategory(int $name)
     {
         $entityManager = $this->getEntityManager();
-        $category = $entityManager->getRepository('AppBundle:Category')->findOneByName($name);
-        return $category;
+        $sql='SELECT news.name,news.description, news.views, news.created_at, news.id  FROM news_category INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :name';
+        $stmt = $entityManager->getConnection()->prepare($sql);
+        $stmt->bindValue(':name',$name);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        //var_dump($result);
+
+
+
+        return $result;
     }
+
+
 }

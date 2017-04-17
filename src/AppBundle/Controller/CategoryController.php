@@ -18,26 +18,13 @@ class CategoryController extends Controller
     /**
      * @Route("/category/{categoryName}", name="category")
      */
-    public function showCategory(string $categoryName)
+    public function showCategory(int $categoryName = 1)
     {
         $showCategoryService = $this->get('app.security.showcategory');
-        $test = $showCategoryService->showCategory($categoryName);
-        //var_dump($test->getNews());
-        foreach ($test->getNews() as $news){
-            var_dump($news->getName());
-        }
-        return new Response();
+        $news = $showCategoryService->showCategory($categoryName);
+        return $this->render(':category:subcategory.html.twig', array('news'=> $news));
     }
 
-    /**
-     * @Route("/news/{id}", name="news")
-     */
-    public function showNews(string $id)
-    {
-        $showCategoryService = $this->get('app.security.shownews');
-        $test = $showCategoryService->showNews($id);
-        return new Response('<b>' . $test->getName() . '</b><br>' . $test->getDescription());
-    }
 
 
 }

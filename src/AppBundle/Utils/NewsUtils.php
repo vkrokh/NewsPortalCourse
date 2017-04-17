@@ -8,7 +8,7 @@
 
 namespace AppBundle\Utils;
 
-use AppBundle\Entity\News;
+use AppBundle\Entity\Category;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class NewsUtils
@@ -21,16 +21,18 @@ class NewsUtils
         $this->container = $container;
     }
 
-    public function showNews(string $id)
+    public function showNews(int $id)
     {
         $doctrine = $this->container->get('doctrine');
         $newsRepository = $doctrine->getRepository('AppBundle:News');
         return $newsRepository->getNews($id);
     }
 
-    public function getCategoryNews(string $name)
+    public function getAllNews(string $category)
     {
-
+        $doctrine = $this->container->get('doctrine');
+        $newsRepository = $doctrine->getRepository('AppBundle:News');
+        return $newsRepository->getAllNews($category);
     }
 
 }
