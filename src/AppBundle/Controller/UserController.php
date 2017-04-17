@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+<<<<<<< HEAD
 use AppBundle\Entity\UserRecovery;
 use AppBundle\Form\RecoveryType;
 use AppBundle\Form\RecoveryViewType;
+=======
+use AppBundle\Form\EditType;
+>>>>>>> partCategory
 use AppBundle\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,6 +76,7 @@ class UserController extends Controller
     }
 
     /**
+<<<<<<< HEAD
      * @Route("/recovery", name="user_recovery_view")
      */
     public function recoveryViewAction(Request $request)
@@ -119,6 +124,29 @@ class UserController extends Controller
         }
         return $this->redirectToRoute('user_login');
     }
+=======
+     * @Route("/edit", name="user_edit")
+     */
+    public function editUserAction(Request $request)
+    {
+        $user = new User();
+        $form = $this->createForm(EditType::class, $user);
+        $form->handleRequest($request);
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $registerService = $this->get('app.security.register');
+//            $registerService->registerUser($user);
+//            return $this->redirectToRoute('user_login');
+//        }
+        $errors = (string) $form->getErrors(true);
+        return $this->render(
+            'user/edit.html.twig',
+            array('form' => $form->createView(),
+                'errors'=>$errors)
+        );
+    }
+
+
+>>>>>>> partCategory
 
 
 }
