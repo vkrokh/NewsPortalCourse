@@ -31,11 +31,18 @@ class CategoryUtils
         $categoryRepository->sendToDataBase($category);
     }
 
-    public function showCategory(string $category)
+    public function showCategory(int $category)
     {
         $doctrine = $this->container->get('doctrine');
         $categoryRepository = $doctrine->getRepository('AppBundle:Category');
-        return $categoryRepository->getCategory($category);
+        return $categoryRepository->getCategoryNews($category);
+    }
+
+    public function getCategory(int $id)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
+        return $categoryRepository->getCategory($id);
     }
 
 

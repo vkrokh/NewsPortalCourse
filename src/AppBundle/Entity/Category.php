@@ -50,7 +50,7 @@ class Category
     private $subCategory;
 
     /**
-     * @ManyToMany(targetEntity="News", inversedBy="category")
+     * @ManyToMany(targetEntity="News", inversedBy="parentCategories")
      * @JoinTable(name="news_category")
      */
     private $news;

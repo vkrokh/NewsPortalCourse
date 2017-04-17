@@ -306,7 +306,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 }
 
 .post-summary {background: #f8f8f8; padding-bottom: 20px; overflow: auto;}
-.post-summary p {padding:20px; margin:0px;}
+.post-summary p {padding:20px; margin:0px; font-size: medium}
 .post-summary-footer {margin: 0px; padding:0px 20px;}
 .post-summary-footer button {margin: 0px; float:left;}
 ul.post-data {float:right;}
@@ -389,7 +389,7 @@ ul.post-data li:last-child {padding-right: 0px;}
 
 /*** Blog Full Page ***/
 .post-content {background: #f8f8f8; overflow: auto;}
-.post-body {padding: 20px;}
+.post-body {padding: 20px; font-size: medium;}
 .about-author img {float: left; margin-right: 20px;}
 
 /*** Comments ***/

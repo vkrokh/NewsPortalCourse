@@ -20,3 +20,9 @@ services:
     app.security.shownews:
         class: AppBundle\Utils\NewsUtils
         arguments: ['@service_container']
+#    app.myfilter:
+#            class: AppExtending
+    app.twig.myfilter:
+            class: AppBundle\Twig\AppExtending
+            tags:
+                - { name: twig.extension }

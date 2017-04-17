@@ -51,24 +51,12 @@ class News
      */
     private $createdAt;
 
-    /**
-     * @Assert\NotBlank()
-     * @ORM\ManyToOne(targetEntity="Category")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     */
-    private $category;
 
 
     /**
      * @ORM\Column(name="views", type="integer")
      */
     private $numberOfViews;
-
-
-//    /**
-//     * @ORM\Column(name="similar_news", type="array")
-//     */
-//    private $similarNews;
 
     /**
      * @ManyToMany(targetEntity="Category", mappedBy="news")
@@ -205,37 +193,9 @@ class News
         return $this->numberOfViews;
     }
 
-    /**
-     * Set shortDescription
-     *
-     * @param string $shortDescription
-     *
-     * @return News
-     */
-    public function setShortDescription($shortDescription)
-    {
-        $this->shortDescription = $shortDescription;
 
-        return $this;
-    }
 
-    /**
-     * Get shortDescription
-     *
-     * @return string
-     */
-    public function getShortDescription()
-    {
-        return $this->shortDescription;
-    }
 
-    /**
-     * Set similarNews
-     *
-     * @param array $similarNews
-     *
-     * @return News
-     */
     public function setSimilarNews($similarNews)
     {
         $this->similarNews = $similarNews;
@@ -292,5 +252,29 @@ class News
     public function getParentCategories()
     {
         return $this->parentCategories;
+    }
+
+    /**
+     * Set shortDescription
+     *
+     * @param string $shortDescription
+     *
+     * @return News
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->shortDescription = $shortDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get shortDescription
+     *
+     * @return string
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
     }
 }
