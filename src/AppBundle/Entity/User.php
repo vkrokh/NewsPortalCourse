@@ -57,10 +57,7 @@ class User implements AdvancedUserInterface
      */
     protected $dispatch = true;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> partCategory
     /**
      * @ORM\Column(name="roles", type="array")
      */
@@ -79,12 +76,7 @@ class User implements AdvancedUserInterface
     protected $plainPassword;
 
 
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> partCategory
     public function isAccountNonExpired()
     {
         return $this->enabled;

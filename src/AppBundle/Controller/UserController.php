@@ -3,13 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
-<<<<<<< HEAD
 use AppBundle\Entity\UserRecovery;
 use AppBundle\Form\RecoveryType;
 use AppBundle\Form\RecoveryViewType;
-=======
 use AppBundle\Form\EditType;
->>>>>>> partCategory
 use AppBundle\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -76,7 +73,6 @@ class UserController extends Controller
     }
 
     /**
-<<<<<<< HEAD
      * @Route("/recovery", name="user_recovery_view")
      */
     public function recoveryViewAction(Request $request)
@@ -124,7 +120,7 @@ class UserController extends Controller
         }
         return $this->redirectToRoute('user_login');
     }
-=======
+    /*
      * @Route("/edit", name="user_edit")
      */
     public function editUserAction(Request $request)
@@ -145,8 +141,6 @@ class UserController extends Controller
         );
     }
 
-
->>>>>>> partCategory
 
 
 }
