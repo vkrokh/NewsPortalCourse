@@ -22,9 +22,12 @@
         </article>
     {% endfor %}
 
+    <div class="navigation">
+        {{ knp_pagination_render(news) }}
+    </div>
 {% endblock %}
 
- {% block category %}
+{% block category %}
      <h5 class="title-bg">Categories</h5>
      <ul class="post-category-list">
          {% for qcategory in category %}
@@ -33,3 +36,5 @@
          {% endfor %}
      </ul>
  {% endblock %}
+
+

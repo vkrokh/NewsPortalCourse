@@ -12,6 +12,6 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('index/homepage.html.twig');
+        return $this->redirectToRoute('category');
     }
 }
