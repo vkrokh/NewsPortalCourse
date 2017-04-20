@@ -2,7 +2,7 @@
 
 {% block title %}Sign In{% endblock %}
 {% block body %}
-    <div class="container form-group">
+    <div class="main-container pagination-centered form-group">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -11,9 +11,9 @@
             <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}"/>
             <label class="control-label" for="password">Password</label>
             <input type="password" id="password" name="_password" class="form-control" />
+            <label class="control-label"></label>
             <button type="submit" class="form-control btn-success">Sign In</button>
         </form>
-        <div class="container">
             <a href="{{ path('user_register') }}">
                 Create new Account
             </a>
@@ -21,7 +21,6 @@
             <a href="{{ path('user_recovery_view') }}">
                 Forgot the password?
             </a>
-        </div>
     </div>
 {% endblock %}
 

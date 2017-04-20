@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Edit{% endblock %}
 
 {% block body %}
-    <div class="container pagination-centered form-group">
+    <div class="container form-group">
 
         {{ form_start(form) }}
 
@@ -23,16 +23,11 @@
             'label_attr': {'class': 'control-label'}
         }) }}
 
-        <button type="submit" class="form-control btn-success">Register</button>
+        {{ form_row(form.roles, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        <button type="submit" class="form-control btn-success">Edit</button>
         {{ form_end(form) }}
-        <div class="container">
-            <a href="{{ path('user_login') }}">
-                Sign In Page
-            </a>
-            or
-            <a href="{{ path('user_recovery_view') }}">
-                Forgot the password?
-            </a>
-        </div>
     </div>
 {% endblock %}

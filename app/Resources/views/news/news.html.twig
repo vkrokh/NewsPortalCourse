@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+            <article>
+                <h3 class="title-bg"><a href="#"></a>{{ news.getName() }} </h3>
+                <div class="post-content">
+                    <div class="post-body">
+                        <p>
+                            {{ news.getDescription() }}
+                        </p>
+                    </div>
+
+                    <div class="post-summary-footer">
+                        <ul class="post-data">
+                            <li><i class="icon-calendar"></i> {{ news.getCreatedAt()|date('Y-m-d-H-i-s') }}</li>
+                            <li><i class="icon-user"></i> <a href="#">Admin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+{% endblock %}
