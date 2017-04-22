@@ -9,6 +9,7 @@
 namespace AppBundle\Utils;
 
 
+use AppBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ActivateUtils
@@ -18,6 +19,14 @@ class ActivateUtils
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    public function dispatching(User $user)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $user->setDispatch(!($user->getDispatch()));
+        $userRepository->sendToDataBase($user);
     }
 
     public function activation(string $token)
