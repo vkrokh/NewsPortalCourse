@@ -20,16 +20,17 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
         $entityManager->flush();
     }
 
-    public function getCategoryNews(int $name)
+    public function getCategoryNews(int $id)
     {
         $entityManager = $this->getEntityManager();
-        $sql='SELECT news.name,news.description, news.views, news.created_at, news.id  FROM news_category INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :name';
+        $sql = 'SELECT news.name,news.description, news.views, news.created_at, news.id , news.user_name  FROM news_category INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :id';
         $stmt = $entityManager->getConnection()->prepare($sql);
-        $stmt->bindValue(':name',$name);
+        $stmt->bindValue(':id', $id);
         $stmt->execute();
         $result = $stmt->fetchAll();
         return $result;
     }
+
     public function getCategory(int $id)
     {
         $entityManager = $this->getEntityManager();

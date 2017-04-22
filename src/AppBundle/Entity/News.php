@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\NewsRepository")
  * @ORM\Table(name="news")
- * @UniqueEntity(fields="name", message="This category name is already in use")
+ * @UniqueEntity(fields="name", message="This news name is already in use")
  */
 class News
 {
@@ -42,16 +42,9 @@ class News
     private $description;
 
     /**
-     * @ORM\Column(name="short_description", type="string", length = 140)
-     */
-    private $shortDescription;
-
-    /**
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
-
-
 
     /**
      * @ORM\Column(name="views", type="integer")
@@ -62,6 +55,12 @@ class News
      * @ManyToMany(targetEntity="Category", mappedBy="news")
      */
     private $parentCategories;
+
+    /**
+     * @ORM\Column(name="user_name", type="string" , length = 255)
+     */
+    private $user;
+
 
     /**
      * Get id
@@ -145,29 +144,6 @@ class News
         return $this->createdAt;
     }
 
-    /**
-     * Set category
-     *
-     * @param \AppBundle\Entity\Category $category
-     *
-     * @return News
-     */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \AppBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 
     /**
      * Set numberOfViews
@@ -194,24 +170,6 @@ class News
     }
 
 
-
-
-    public function setSimilarNews($similarNews)
-    {
-        $this->similarNews = $similarNews;
-
-        return $this;
-    }
-
-    /**
-     * Get similarNews
-     *
-     * @return array
-     */
-    public function getSimilarNews()
-    {
-        return $this->similarNews;
-    }
     /**
      * Constructor
      */
@@ -254,27 +212,28 @@ class News
         return $this->parentCategories;
     }
 
+
     /**
-     * Set shortDescription
+     * Set user
      *
-     * @param string $shortDescription
+     * @param \AppBundle\Entity\User $user
      *
      * @return News
      */
-    public function setShortDescription($shortDescription)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
-        $this->shortDescription = $shortDescription;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get shortDescription
+     * Get user
      *
-     * @return string
+     * @return \AppBundle\Entity\User
      */
-    public function getShortDescription()
+    public function getUser()
     {
-        return $this->shortDescription;
+        return $this->user;
     }
 }

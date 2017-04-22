@@ -24,11 +24,11 @@ class CategoryController extends Controller
         $news = $categoryService->showCategory($categoryId);
         $category = $categoryService->getCategory($categoryId);
         $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate($news,$page, 10
+        $pagination = $paginator->paginate($news, $page, 5
         );
-        return $this->render(':category:subcategory.html.twig', array('news'=> $pagination, 'category'=>$category->getSubCategory()));
+        return $this->render(':category:subcategory.html.twig',
+            array('news' => $pagination, 'category' => $category->getSubCategory()));
     }
-
 
 
 }

@@ -15,10 +15,22 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
     {
         $entityManager = $this->getEntityManager();
         $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
+        $views = $news->getNumberOfViews();
+        $news->setNumberOfViews(++$views);
+        $entityManager->persist($news);
+        $entityManager->flush();
         return $news;
     }
 
-
+    public function getLatestFiveNews()
+    {
+        $entityManager = $this->getEntityManager();
+        $sql = 'SELECT news.name,news.description, news.id  FROM news_portal.news ORDER BY news.created_at DESC LIMIT 5';
+        $stmt = $entityManager->getConnection()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
 
 }

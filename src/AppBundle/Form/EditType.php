@@ -17,12 +17,14 @@ class EditType extends RegisterType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options) {
-            $builder->add('roles', ChoiceType::class, ['choices' => [
+        parent::buildForm($builder, $options){
+        $builder->add('roles', ChoiceType::class, [
+            'choices' => [
                 'User' => 'ROLE_USER',
                 'Content Manager' => 'ROLE_CONTENT_MANAGER',
                 'Admin' => 'ROLE_ADMIN'
-            ]])
+            ]
+        ])
         };
     }
 }

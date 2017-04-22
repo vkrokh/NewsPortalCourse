@@ -25,8 +25,13 @@ class RestoreUtils
     private $render;
     private $router;
 
-    public function __construct(ContainerInterface $container, TokenGeneratorUtils $tokenGenerator, \Swift_Mailer $mailer, TwigEngine $render, Router $router)
-    {
+    public function __construct(
+        ContainerInterface $container,
+        TokenGeneratorUtils $tokenGenerator,
+        \Swift_Mailer $mailer,
+        TwigEngine $render,
+        Router $router
+    ) {
         $this->container = $container;
         $this->mailer = $mailer;
         $this->tokenGenerator = $tokenGenerator;
@@ -40,7 +45,7 @@ class RestoreUtils
         $doctrine = $this->container->get('doctrine');
         $userRepository = $doctrine->getRepository('AppBundle:User');
         $user = $userRepository->findUserByEmail($email);
-        if (isset($user)) {
+        if (isset($user) && $user->isEnabled()) {
             $this->createToken($user);
             return true;
         }

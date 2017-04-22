@@ -4,8 +4,10 @@
 {% block title %}Recovery{% endblock %}
 
 {% block body %}
-    <div class="container form-group">
-
+    <div class="container pagination-centered form-group">
+        {% if errors %}
+            <div class="alert alert-danger">{{ errors }}</div>
+        {% endif %}
         {{ form_start(form) }}
 
         {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'},

@@ -1,0 +1,11 @@
+<h1>Daily mail dispatch</h1>
+
+
+{% for oneNews in news %}
+    <div class="news">
+        <h4>{{ oneNews.name }}</h4>
+        <p>{{ oneNews.description }}</p>
+    </div>
+{% endfor %}
+
+<h1>You can unsubscribe from daily dispatch in your account.</h1>

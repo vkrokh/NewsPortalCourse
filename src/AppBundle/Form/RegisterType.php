@@ -24,14 +24,15 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class, ['error_bubbling' => true])
             ->add(
                 'plainPassword', RepeatedType::class,
                 [
-                'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm Password'],
-                'invalid_message' => 'Passwords do not match.',
+                    'type' => PasswordType::class,
+                    'first_options' => ['label' => 'Password'],
+                    'second_options' => ['label' => 'Confirm Password'],
+                    'invalid_message' => 'Passwords do not match.',
+                    'error_bubbling' => true,
                 ]
             );
     }
@@ -40,7 +41,7 @@ class RegisterType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-            'data_class' => User::class,
+                'data_class' => User::class,
             )
         );
     }

@@ -3,8 +3,11 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="container pagination-centered form-group">
 
+    <div class="container pagination-centered form-group">
+        {% if errors %}
+                <div class="alert alert-danger">{{ errors }}</div>
+        {% endif %}
         {{ form_start(form) }}
 
         {{ form_row(form.name, {'attr': {'class': 'form-control'},

@@ -2,7 +2,12 @@
 
 {% block title %}Sign In{% endblock %}
 {% block body %}
-    <div class="main-container pagination-centered form-group">
+    <div class="container pagination-centered form-group">
+        {% for flashMessage in app.session.flashbag.get('message') %}
+            <div class="alert alert-danger">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -24,3 +29,6 @@
     </div>
 {% endblock %}
 
+
+{% block category %}
+{% endblock %}

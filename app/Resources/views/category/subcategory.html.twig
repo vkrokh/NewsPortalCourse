@@ -4,7 +4,7 @@
 
     {% for qnews in  news %}
         <article>
-            <h3 class="title-bg"><a href="blog-single.htm">{{ qnews['name'] }}</a></h3>
+            <h3 class="title-bg">{{ qnews['name'] }}</h3>
             <div class="post-summary">
                 <p>
                     {{ (qnews['description'])|descriptionFilter() }}
@@ -14,8 +14,9 @@
                     <button class="btn btn-small btn-inverse" type="button"><a
                                 href="{{ path('news', {'newsname': qnews['id']}) }}">Read more</a></button>
                     <ul class="post-data">
+                        <li><i class="icon-eye-open"></i>{{ qnews['views'] }}</li>
                         <li><i class="icon-calendar"></i> {{ qnews['created_at'] }}</li>
-                        <li><i class="icon-user"></i>Admin</li>
+                        <li><i class="icon-user"></i>{{ qnews['user_name'] }}</li>
                     </ul>
                 </div>
             </div>
@@ -28,13 +29,13 @@
 {% endblock %}
 
 {% block category %}
-     <h5 class="title-bg">Categories</h5>
-     <ul class="post-category-list">
-         {% for qcategory in category %}
-             <li><a href="{{ path('category', {'categoryId': qcategory.id }) }}"><i
-                             class="icon-plus-sign"></i>{{ qcategory.name }}</a></li>
-         {% endfor %}
-     </ul>
- {% endblock %}
+    <h5 class="title-bg">Categories</h5>
+    <ul class="post-category-list">
+        {% for qcategory in category %}
+            <li><a href="{{ path('category', {'categoryId': qcategory.id }) }}"><i
+                            class="icon-plus-sign"></i>{{ qcategory.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
 
 

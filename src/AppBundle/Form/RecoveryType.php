@@ -26,10 +26,11 @@ class RecoveryType extends AbstractType
             ->add(
                 'plainPassword', RepeatedType::class,
                 [
-                'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm Password'],
-                'invalid_message' => 'Passwords do not match.',
+                    'type' => PasswordType::class,
+                    'first_options' => ['label' => 'Password'],
+                    'second_options' => ['label' => 'Confirm Password'],
+                    'invalid_message' => 'Passwords do not match.',
+                    'error_bubbling' => true
                 ]
             );
     }
@@ -38,7 +39,7 @@ class RecoveryType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-            'data_class' => UserRecovery::class,
+                'data_class' => UserRecovery::class,
             )
         );
     }

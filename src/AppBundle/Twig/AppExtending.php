@@ -4,6 +4,7 @@ namespace AppBundle\Twig;
 
 use \Twig_Extension;
 use \Twig_Filter_Method;
+
 /**
  * Created by PhpStorm.
  * User: vkrokh
@@ -21,7 +22,7 @@ class AppExtending extends \Twig_Extension
 
     public function clipDescription(string $text)
     {
-        return substr($text, 0, 240) . '...';
+        return mb_substr($text, 0, 240) . '...';
     }
 
 

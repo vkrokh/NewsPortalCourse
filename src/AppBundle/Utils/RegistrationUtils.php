@@ -24,8 +24,13 @@ class RegistrationUtils
     private $render;
     private $router;
 
-    public function __construct(ContainerInterface $container, TokenGeneratorUtils $tokenGenerator, \Swift_Mailer $mailer, TwigEngine $render, Router $router)
-    {
+    public function __construct(
+        ContainerInterface $container,
+        TokenGeneratorUtils $tokenGenerator,
+        \Swift_Mailer $mailer,
+        TwigEngine $render,
+        Router $router
+    ) {
         $this->container = $container;
         $this->mailer = $mailer;
         $this->tokenGenerator = $tokenGenerator;

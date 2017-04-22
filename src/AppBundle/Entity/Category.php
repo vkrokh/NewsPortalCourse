@@ -18,7 +18,6 @@ use Doctrine\ORM\Mapping\JoinTable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
-
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CategoryRepository")
  * @ORM\Table(name="category")
@@ -91,6 +90,7 @@ class Category
     {
         array_push($this->subCategory, $category->getName());
     }
+
     /**
      * Constructor
      */

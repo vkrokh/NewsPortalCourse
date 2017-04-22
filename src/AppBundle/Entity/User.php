@@ -76,7 +76,6 @@ class User implements AdvancedUserInterface
     protected $plainPassword;
 
 
-
     public function isAccountNonExpired()
     {
         return $this->enabled;

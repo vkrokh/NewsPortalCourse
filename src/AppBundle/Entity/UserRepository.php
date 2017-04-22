@@ -24,4 +24,12 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         $user = $userRepository->findOneByEmail($email);
         return $user;
     }
+
+    public function getAllDispatchUsers()
+    {
+        $entityManager = $this->getEntityManager();
+        $userRepository = $entityManager->getRepository('AppBundle:User');
+        $users = $userRepository->findBy(['dispatch' => true, 'enabled' => 1]);
+        return $users;
+    }
 }

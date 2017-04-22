@@ -12,9 +12,22 @@ class TokenRepository extends \Doctrine\ORM\EntityRepository
 {
     public function sendToDataBase(Token $token)
     {
+        $this->checkTokenUser($token);
         $entityManager = $this->getEntityManager();
         $entityManager->persist($token);
         $entityManager->flush();
+    }
+
+    public function checkTokenUser(Token $token)
+    {
+        $user = $token->getUser();
+        $entityManager = $this->getEntityManager();
+        $tokenRepository = $entityManager->getRepository('AppBundle:Token');
+        $similarToken = $tokenRepository->findOneByUser($user);
+        if(isset($similarToken)){
+            $entityManager->remove($similarToken);
+            $entityManager->flush();
+        }
     }
 
     public function activateUserByToken(string $token)
@@ -26,11 +39,14 @@ class TokenRepository extends \Doctrine\ORM\EntityRepository
             $user = $fullyToken->getUser();
             if ($this->checkToken($fullyToken)) {
                 $user->setEnabled(true);
+                $entityManager->persist($user);
+                $this->removeToken($fullyToken);
+                return true;
             }
-            $entityManager->persist($user);
             $this->removeToken($fullyToken);
-
+            return false;
         }
+        return false;
     }
 
     public function removeToken(Token $fullyToken)
