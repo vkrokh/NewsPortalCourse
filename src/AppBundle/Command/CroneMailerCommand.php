@@ -39,7 +39,7 @@ class CroneMailerCommand extends ContainerAwareCommand
                 ->setContentType('text/html')
                 ->setBody(
                     $this->getContainer()->get('templating')->render(
-                        ':user:latestNewsEmail.html.twig',
+                        ':user:latestNewsMail.html.twig',
                         ['news' => $latestNews]
                     )
                 );

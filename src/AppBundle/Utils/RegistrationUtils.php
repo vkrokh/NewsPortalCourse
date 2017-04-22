@@ -74,7 +74,7 @@ class RegistrationUtils
             ->setTo($userEmail)
             ->setBody(
                 $this->render->render(
-                    'user/mail.html.twig',
+                    'user/activateMail.html.twig',
                     array
                     (
                         'url' => $this->router->generate(

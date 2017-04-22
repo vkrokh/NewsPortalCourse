@@ -25,7 +25,6 @@ class CategoryUtils
 
     public function addCategory(Category $category)
     {
-        //TODO:fix addCategory-Utils
         $doctrine = $this->container->get('doctrine');
         $categoryRepository = $doctrine->getRepository('AppBundle:Category');
         $categoryRepository->sendToDataBase($category);

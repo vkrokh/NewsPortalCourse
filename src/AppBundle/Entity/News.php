@@ -61,6 +61,11 @@ class News
      */
     private $user;
 
+    /**
+     * @ORM\Column(name="similar_news" , type="array")
+     */
+    private $similarNewsId;
+
 
     /**
      * Get id
@@ -141,7 +146,7 @@ class News
      */
     public function getCreatedAt()
     {
-        return $this->createdAt;
+        return $this->createdAt->format('Y-m-d H:i:s');
     }
 
 
@@ -235,5 +240,29 @@ class News
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set similarNewsId
+     *
+     * @param array $similarNewsId
+     *
+     * @return News
+     */
+    public function setSimilarNewsId($similarNewsId)
+    {
+        $this->similarNewsId = $similarNewsId;
+
+        return $this;
+    }
+
+    /**
+     * Get similarNewsId
+     *
+     * @return array
+     */
+    public function getSimilarNewsId()
+    {
+        return $this->similarNewsId;
     }
 }

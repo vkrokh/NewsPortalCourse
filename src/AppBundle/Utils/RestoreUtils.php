@@ -96,10 +96,10 @@ class RestoreUtils
             ->setTo($userEmail)
             ->setBody(
                 $this->render->render(
-                    'user/recoveryMail.html.twig',
+                    'mails/restoreMail.html.twig',
                     array(
                         'url' => $this->router->generate(
-                            'user_recovery',
+                            'user_restore',
                             array('token' => $token),
                             UrlGeneratorInterface::ABSOLUTE_PATH
                         )

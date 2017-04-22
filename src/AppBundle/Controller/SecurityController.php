@@ -94,7 +94,7 @@ class SecurityController extends Controller
     }
 
     /**
-     * @Route("/recovery", name="user_recovery_view")
+     * @Route("/restore", name="user_restore_view")
      */
     public function recoveryViewAction(Request $request)
     {
@@ -112,7 +112,7 @@ class SecurityController extends Controller
             }
             $this->addFlash('message', 'Account locked or does not exist');
             return $this->render(
-                'user/recoveryView.html.twig',
+                'user/restoreEmailView.html.twig',
                 array(
                     'form' => $form->createView(),
                     'errors' => ''
@@ -121,7 +121,7 @@ class SecurityController extends Controller
         }
         $errors = (string)$form->getErrors(true);
         return $this->render(
-            'user/recoveryView.html.twig',
+            'user/restoreEmailView.html.twig',
             array(
                 'form' => $form->createView(),
                 'errors' => $errors
@@ -130,7 +130,7 @@ class SecurityController extends Controller
     }
 
     /**
-     * @Route("/recovery/{token}", name="user_recovery")
+     * @Route("/restore/{token}", name="user_restore")
      */
     public function recoveryAction(Request $request, string $token)
     {
@@ -152,7 +152,7 @@ class SecurityController extends Controller
             }
             $errors = (string)$form->getErrors(true);
             return $this->render(
-                'user/recovery.html.twig',
+                'user/restorePasswordView.html.twig',
                 array(
                     'form' => $form->createView(),
                     'errors' => $errors

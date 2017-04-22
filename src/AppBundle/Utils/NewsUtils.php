@@ -21,11 +21,24 @@ class NewsUtils
         $this->container = $container;
     }
 
+    public function getSimilar(Array $newsId)
+    {
+        $allSimilarNews = Array();
+        $doctrine = $this->container->get('doctrine');
+        $newsRepository = $doctrine->getRepository('AppBundle:News');
+        foreach ($newsId as $oneNewsId) {
+            $similarNews = $newsRepository->getSimilarNewsFromDataBase($oneNewsId);
+            array_push($allSimilarNews,$similarNews);
+        }
+        return $allSimilarNews;
+    }
+
     public function showNews(int $id)
     {
         $doctrine = $this->container->get('doctrine');
         $newsRepository = $doctrine->getRepository('AppBundle:News');
-        return $newsRepository->getNews($id);
+        $news = $newsRepository->getNews($id);
+        return $news;
     }
 
     public function getAllNews(string $category)

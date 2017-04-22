@@ -16,13 +16,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class NewsControler extends Controller
 {
     /**
-     * @Route("/news/{newsname}", name="news")
+     * @Route("/news/{newsId}", name="news")
      */
-    public function showNews(int $newsname)
+    public function showNews(int $newsId)
     {
-        $showCategoryService = $this->get('app.security.shownews');
-        $news = $showCategoryService->showNews($newsname);
-        return $this->render('news/news.html.twig', array('news' => $news));
+        $showNewsService = $this->get('app.security.shownews');
+        $news = $showNewsService->showNews($newsId);
+        $similarNews = $showNewsService->getSimilar($news->getSimilarNewsId());
+        return $this->render('news/news.html.twig', array('news' => $news,'similar'=>$similarNews));
     }
 
 }

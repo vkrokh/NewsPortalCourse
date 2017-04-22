@@ -24,7 +24,7 @@ class TokenRepository extends \Doctrine\ORM\EntityRepository
         $entityManager = $this->getEntityManager();
         $tokenRepository = $entityManager->getRepository('AppBundle:Token');
         $similarToken = $tokenRepository->findOneByUser($user);
-        if(isset($similarToken)){
+        if (isset($similarToken)) {
             $entityManager->remove($similarToken);
             $entityManager->flush();
         }

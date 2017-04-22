@@ -17,8 +17,19 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
         $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
         $views = $news->getNumberOfViews();
         $news->setNumberOfViews(++$views);
+       /* $similar = $news->getSimilarNewsId();
+        array_push($similar,'19');
+        $news->setSimilarNewsId($similar);*/
         $entityManager->persist($news);
         $entityManager->flush();
+        return $news;
+    }
+
+    public function getSimilarNewsFromDataBase(int $id)
+    {
+
+        $entityManager = $this->getEntityManager();
+        $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
         return $news;
     }
 
