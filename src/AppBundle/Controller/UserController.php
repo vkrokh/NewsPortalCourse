@@ -21,7 +21,19 @@ class UserController extends Controller
      */
     public function profilePageAction()
     {
-        return new Response('', 200);
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        return $this->render('user/profile.html.twig', ['user' => $user]);
+    }
+
+
+    /**
+     * @Route("/dispatch", name="user_dispatch")
+     */
+    public function dispatchChangeAction()
+    {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $this->get('app.security.activator')->dispatching($user);
+        return $this->redirect($this->generateUrl('user_profile'));
     }
 
     /**

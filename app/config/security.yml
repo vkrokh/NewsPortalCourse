@@ -35,8 +35,7 @@ security:
 
 
      access_control:
-         - { path: ^/admin , roles: ROLE_ADMIN }
-         - { path: ^/manage , roles: ROLE_CONTENT_MANAGER }
+         - { path: ^/admin , roles: ROLE_CONTENT_MANAGER }
          - { path: ^/login , roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/register , roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/activate , roles: IS_AUTHENTICATED_ANONYMOUSLY }

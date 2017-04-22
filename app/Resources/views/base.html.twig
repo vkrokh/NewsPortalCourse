@@ -59,15 +59,17 @@
             </div>
             {% if app.user %}
                 <div class="span4 sidebar">
-                    <section>
-                        <div class="input-append">
-                            <form action="#">
-                                <input id="appendedInputButton" size="16" type="text" placeholder="Search">
-                                <button class="btn" type="button">Search</button>
-                            </form>
-                        </div>
-                    </section>
-                    {% block rigthMenu %}
+                    {% block search %}
+                        <section>
+                            <div class="input-append">
+                                <form action="#">
+                                    <input id="appendedInputButton" size="16" type="text" placeholder="Search">
+                                    <button class="btn" type="button">Search</button>
+                                </form>
+                            </div>
+                        </section>
+                    {% endblock %}
+                    {% block rightMenu %}
                     {% endblock %}
                 </div>
             {% endif %}

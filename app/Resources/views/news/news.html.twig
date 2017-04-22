@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %}{{ news.getName() }}{% endblock %}
+
 {% block body %}
     <article>
         <h3 class="title-bg">{{ news.getName() }} </h3>
@@ -21,7 +23,7 @@
     </article>
 {% endblock %}
 
-{% block rigthMenu %}
+{% block rightMenu %}
     <h5 class="title-bg">Similar News</h5>
     <ul class="post-category-list">
         {% for similarNews in similar %}
