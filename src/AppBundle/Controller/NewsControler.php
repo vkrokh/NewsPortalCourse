@@ -13,10 +13,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+/**
+ * @Route("/news")
+ */
 class NewsControler extends Controller
 {
     /**
-     * @Route("/news/{newsId}", name="news")
+     * @Route("/{newsId}", name="news")
      */
     public function showNews(int $newsId)
     {

@@ -16,18 +16,22 @@ use Symfony\Component\HttpFoundation\Response;
 class CategoryController extends Controller
 {
     /**
-     * @Route("/category/{categoryId}/{page}", name="category")
+     * @Route("/category/{categoryId}/{page}/{sortField}/{sortType}", name="category")
      */
-    public function showCategory(int $categoryId = 1, int $page = 1)
-    {
+    public function showCategory(
+        int $categoryId = 1,
+        int $page = 1,
+        string $sortField = 'date',
+        string $sortType = 'DESC'
+    ) {
         $categoryService = $this->get('app.security.showcategory');
-        $news = $categoryService->showCategory($categoryId);
+        $news = $categoryService->showCategory($categoryId, $sortField, $sortType);
         $category = $categoryService->getCategory($categoryId);
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($news, $page, 5
         );
         return $this->render(':category:subcategory.html.twig',
-            array('news' => $pagination, 'category' => $category->getSubCategory()));
+            array('news' => $pagination, 'category' => $category));
     }
 
 

@@ -26,8 +26,7 @@ class AdminController extends Controller
     public function adminPageAction(Request $request)
     {
        var_dump($request->headers->get('referer'));
-
-        return new Response('', 200);
+        return $this->render('admin/adminPageView.html.twig');
     }
 
 }

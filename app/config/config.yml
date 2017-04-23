@@ -8,6 +8,22 @@ imports:
 parameters:
     locale: en
 
+fos_elastica:
+    clients:
+          default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            index_name: app_%kernel.environment%
+            types:
+                news:
+                    properties:
+                        name: ~
+                        description: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\News
+                        provider: ~
+                        finder: ~
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
