@@ -30,11 +30,11 @@ class CategoryUtils
         $categoryRepository->sendToDataBase($category);
     }
 
-    public function showCategory(int $category)
+    public function showCategory(int $category, string $sortField, string $sortType)
     {
         $doctrine = $this->container->get('doctrine');
         $categoryRepository = $doctrine->getRepository('AppBundle:Category');
-        return $categoryRepository->getCategoryNews($category);
+        return $categoryRepository->getCategoryNews($category, $sortField, $sortType);
     }
 
     public function getCategory(int $id)

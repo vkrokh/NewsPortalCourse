@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Query\ResultSetMapping;
+use PDO;
 
 /**
  * CategoryRepository
@@ -20,10 +21,21 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
         $entityManager->flush();
     }
 
-    public function getCategoryNews(int $id)
+
+    private function getSortField(string $sortFieled)
+    {
+        if ($sortFieled == 'date') {
+            return 'created_at';
+        }
+        return 'views';
+    }
+
+    public function getCategoryNews(int $id, string $sortField, string $sortType)
     {
         $entityManager = $this->getEntityManager();
-        $sql = 'SELECT news.name,news.description, news.views, news.created_at, news.id , news.user_name  FROM news_category INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :id';
+        $sortField = 'news.' . $this->getSortField($sortField);
+        $sql = 'SELECT news.name,news.description, news.views, news.created_at, news.id , news.user_name  FROM news_category 
+                INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :id ORDER BY '.$sortField.' '.$sortType;
         $stmt = $entityManager->getConnection()->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();

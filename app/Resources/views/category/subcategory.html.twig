@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block title %}Category news!{% endblock %}
+{% block title %}{{ category.name }}{% endblock %}
 {% block body %}
 
     {% for qnews in  news %}
         <article>
-
             <div class="post-summary">
                 <h3 class="title-bg">{{ qnews['name'] }}</h3>
                 <p>
@@ -30,9 +29,30 @@
 {% endblock %}
 
 {% block rightMenu %}
+    <div class="sort-btns">
+        <h5>Sort By</h5>
+        <ul>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'date' }) }}">DATE
+                    ASC</a></li>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'date' }) }}">DATE
+                    DESC</a></li>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'views' }) }}">VIEWS
+                    DESC</a>
+            </li>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'views' }) }}">VIEWS
+                    ASC</a>
+            </li>
+        </ul>
+
+
+    </div>
     <h5 class="title-bg">Sub categories</h5>
     <ul class="post-category-list">
-        {% for qcategory in category %}
+        {% for qcategory in category.getSubCategory %}
             <li><a href="{{ path('category', {'categoryId': qcategory.id }) }}"><i
                             class="icon-plus-sign"></i>{{ qcategory.name }}</a></li>
         {% endfor %}
