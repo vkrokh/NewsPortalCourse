@@ -28,29 +28,41 @@ class Menu implements ContainerAwareInterface
 
         $category = $categoryRepository->find(1);
         $menu->setChildrenAttribute('class', 'nav');
-        foreach ($category->getSubCategory() as $subCategory){
-            $menu->addChild($subCategory->getName(), array(
+        foreach ($category->getSubCategory() as $subCategory) {
+            $nextLevelMenu = $menu->addChild($subCategory->getName(), array(
                 'route' => 'category',
-                'routeParameters' => array('category_id' => $subCategory->getId())
+                'routeParameters' => array('categoryId' => $subCategory->getId())
             ))
                 ->setAttribute('class', 'dropdown')
-            ->setChildrenAttribute('class', 'dropdown-menu');
-            $this->abc($menu, $subCategory);
+                ->setChildrenAttribute('class', 'dropdown-menu');
+            $this->abc($nextLevelMenu, $subCategory);
         }
+        $this->addProfileMenu($menu);
         return $menu;
+    }
+
+    public function addProfileMenu($menu)
+    {
+        $menu->addChild('Profile', array(
+            'route' => 'user_profile'
+        ))
+            ->setAttribute('class', 'dropdown')
+            ->setChildrenAttribute('class', 'dropdown-menu');
+        $menu['Profile']->addChild('Logout', array(
+            'route' => 'user_logout'
+        ));
     }
 
     public function abc($menu, Category $category)
     {
-
-        var_dump($category);
         foreach ($category->getSubCategory() as $subCategory) {
-            $menu[$category->getName()]->addChild($subCategory->getName(), array(
+            $newMenu = $menu->addChild($subCategory->getName(), array(
                 'route' => 'category',
-                'routeParameters' => array('category_id' => $subCategory->getId())
-            ))
-                ->setAttribute('divider_append', true);
-            $this->abc($menu, $subCategory);
+                'routeParameters' => array('categoryId' => $subCategory->getId())
+            ))->setAttribute('class', 'dropdown')
+                ->setChildrenAttribute('class', 'dropdown-submenu');
+
+            $this->abc($newMenu, $subCategory);
         }
     }
 
