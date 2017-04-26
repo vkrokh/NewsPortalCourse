@@ -55,6 +55,23 @@ blockquote {
 }
 blockquote.pull-right {border-right: 5px solid #999;}
 
+.pagination {
+	text-align: center;
+}
+
+.pagination span {
+	font-size: xx-large;
+	background-image: linear-gradient(to bottom,#444,#222);
+	border-style: solid;
+	border-width: thin;
+}
+
+.pagination .current{
+	color: #d8450b;
+	border-style: inset;
+	border-width: thin;
+}
+
 
 /**************************************
 / Header
