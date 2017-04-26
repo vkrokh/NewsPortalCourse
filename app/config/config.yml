@@ -24,6 +24,7 @@ fos_elastica:
                         model: AppBundle\Entity\News
                         provider: ~
                         finder: ~
+                        listener: ~
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
@@ -80,3 +81,9 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+knp_menu:
+    twig:
+        template: KnpMenuBundle::menu.html.twig
+    templating: false
+    default_renderer: twig
