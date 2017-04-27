@@ -48,7 +48,7 @@ class User implements AdvancedUserInterface
      *
      * @ORM\Column(name="enabled", type="boolean")
      */
-    protected $enabled;
+    protected $enabled = false;
 
     /**
      * @var boolean
@@ -61,7 +61,7 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(name="roles", type="array")
      */
-    protected $roles;
+    protected $roles = ['ROLE_USER'];
 
     /**
      * @ORM\Column(name="password",type="string", length=64)

@@ -43,5 +43,12 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
         return $result;
     }
 
+    public function sendToDataBase(News $news)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($news);
+        $entityManager->flush();
+    }
+
 
 }
