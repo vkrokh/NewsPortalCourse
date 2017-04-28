@@ -76,7 +76,6 @@ class News
     private $similarNews;
 
 
-
     /**
      * Get id
      *
@@ -156,8 +155,9 @@ class News
      */
     public function getCreatedAt()
     {
-        if($this->createdAt)
+        if ($this->createdAt) {
             return $this->createdAt->format('Y-m-d H:i:s');
+        }
         return null;
     }
 
@@ -261,8 +261,6 @@ class News
     {
         return $this->user;
     }
-
-
 
 
     /**

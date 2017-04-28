@@ -36,6 +36,12 @@ security:
 
      access_control:
          - { path: ^/ajax/ , roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/admin/user , roles: ROLE_ADMIN }
+         - { path: ^/user/edit , roles: ROLE_ADMIN }
+         - { path: ^/news/create , roles: ROLE_CONTENT_MANAGER }
+         - { path: ^/news/edit , roles: ROLE_CONTENT_MANAGER }
+         - { path: ^/category/create , roles: ROLE_CONTENT_MANAGER }
+         - { path: ^/category/edit , roles: ROLE_CONTENT_MANAGER }
          - { path: ^/admin , roles: ROLE_CONTENT_MANAGER }
          - { path: ^/login , roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/register , roles: IS_AUTHENTICATED_ANONYMOUSLY }

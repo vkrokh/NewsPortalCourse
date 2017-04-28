@@ -20,7 +20,7 @@ class CategoryType extends AbstractType
             'choice_label' => 'name',
         ));
     }
-    
+
     /**
      * {@inheritdoc}
      */

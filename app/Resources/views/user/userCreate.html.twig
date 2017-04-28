@@ -8,17 +8,31 @@
         {% endif %}
         {{ form_start(form) }}
 
+        {{ form_row(form.email, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
         {{ form_row(form.name, {'attr': {'class': 'form-control'},
             'label_attr': {'class': 'control-label'}
         }) }}
-        {{ form_row(form.parentCategory, {'attr': {'class': 'form-control'},
+        <div class="block">
+            {{ form_row(form.enabled, {'attr': {'class': 'form-control'},
+                'label_attr': {'class': 'control-label'}
+            }) }}
+
+            {{ form_row(form.dispatch, {'attr': {'class': 'form-control'},
+                'label_attr': {'class': 'control-label'}
+            }) }}
+        </div>
+
+
+        {{ form_row(form.role, {'attr': {'class': 'form-control'},
             'label_attr': {'class': 'control-label'}
         }) }}
 
         <button type="submit" class="form-control btn-success">Save</button>
         {% if id %}
             <button class="Form-control btn-danger" type="button"><a
-                        href="{{ path('category_delete', {'categoryId': id} ) }}" style="color: white;">Delete</a>
+                        href="{{ path('user_delete', {'userId': id} ) }}" style="color: white;">Delete</a>
             </button>
         {% endif %}
 

@@ -45,7 +45,6 @@ class CategoryController extends Controller
     }
 
 
-
     /**
      * @Route("/category/delete/{categoryId}/", name="category_delete")
      */

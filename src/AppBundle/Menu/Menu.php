@@ -23,9 +23,7 @@ class Menu implements ContainerAwareInterface
     public function mainMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root');
-
         $categoryRepository = $this->container->get('doctrine')->getManager()->getRepository('AppBundle:Category');
-
         $category = $categoryRepository->find(1);
         $menu->setChildrenAttribute('class', 'nav');
         foreach ($category->getSubCategory() as $subCategory) {
@@ -35,7 +33,7 @@ class Menu implements ContainerAwareInterface
             ))
                 ->setAttribute('class', 'dropdown')
                 ->setChildrenAttribute('class', 'dropdown-menu');
-            $this->abc($nextLevelMenu, $subCategory);
+            $this->addDropdownItems($nextLevelMenu, $subCategory);
         }
         $this->addProfileMenu($menu);
         return $menu;
@@ -53,7 +51,7 @@ class Menu implements ContainerAwareInterface
         ));
     }
 
-    public function abc($menu, Category $category)
+    public function addDropdownItems($menu, Category $category)
     {
         foreach ($category->getSubCategory() as $subCategory) {
             $newMenu = $menu->addChild($subCategory->getName(), array(

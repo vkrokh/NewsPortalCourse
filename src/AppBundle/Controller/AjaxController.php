@@ -32,4 +32,13 @@ class AjaxController extends Controller
         return $response;
     }
 
+    /**
+     * @Route("/user",name = "ajax_user")
+     */
+    public function ajaxUserAction(Request $request)
+    {
+        $response = $this->get('app.ajax.json')->getJsonResponseUsers($request);
+        return $response;
+    }
+
 }

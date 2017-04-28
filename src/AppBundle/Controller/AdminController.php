@@ -40,8 +40,6 @@ class AdminController extends Controller
      */
     public function adminPageUsersAction(Request $request)
     {
-        var_dump($request->headers->get('referer'));
-
         return $this->render('admin/adminUsers.html.twig');
     }
 

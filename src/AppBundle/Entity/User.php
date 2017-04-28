@@ -61,7 +61,7 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(name="roles", type="array")
      */
-    protected $roles = ['ROLE_USER'];
+    protected $roles = 'ROLE_USER';
 
     /**
      * @ORM\Column(name="password",type="string", length=64)
@@ -103,6 +103,16 @@ class User implements AdvancedUserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    public function getRole()
+    {
+        return $this->roles[0];
+    }
+
+    public function setRole($role)
+    {
+        $this->roles = [$role];
     }
 
 

@@ -17,12 +17,21 @@ div.textarea > div > textarea {
     overflow-x: hidden;
 }
 
-
 .active-row {
     color: #ee9f30;
 }
 
-.edit-head{
+.block > div {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#appbundle_user_enabled #appbundle_user_dispatch {
+    display: inline-block;
+}
+
+.edit-head {
     color: black;
 }
 
@@ -91,10 +100,9 @@ div.textarea > div > textarea {
     content: '';
 }
 
-.admin-news{
+.admin-news {
     margin-left: -50%;
 }
-
 
 #appbundle_news_name {
     width: 80%;
@@ -273,7 +281,6 @@ blockquote.pull-right {
     }
 }
 
-
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
@@ -301,6 +308,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     padding: 0;
     display: inline-block;
 }
+
 .btn-group__item {
     display: inline-block;
     margin: 0;
@@ -309,13 +317,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     float: left;
 }
 
-
 .btn-group__item .current {
     box-shadow: inset 0px -4px 0px 0px #ee9f30;
     color: #ee9f30;
     font-weight: bold;
 }
-
 
 .dropdown-menu {
     font-family: "Oswald", sans-serif;

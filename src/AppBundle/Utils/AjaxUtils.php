@@ -59,6 +59,23 @@ class AjaxUtils
         return $this->jsonCreateCategory($categories, $page, $perpage);
     }
 
+    public function getJsonResponseUsers(Request $request)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $page = $request->get('page');
+        $perpage = $request->get('perpage');
+        $userRepository = $doctrine->getRepository('AppBundle:User');
+        if ($request->get('sortbyfield')) {
+            $users = $this->sortField($userRepository, $request->get('sortbyfield'), $request->get('order'));
+        } elseif ($request->get('filterbyfield')) {
+            $users = $this->filterField($userRepository, $request->get('filterbyfield'), $request->get('pattern'));
+        } else {
+            $users = $userRepository->findAll();
+        }
+
+        return $this->jsonCreateUser($users, $page, $perpage);
+    }
+
 
     private function jsonCreateCategory(Array $categories, int $page, int $perpage)
     {
@@ -80,6 +97,26 @@ class AjaxUtils
         return new JsonResponse(array('category' => $response, 'count' => $count));
     }
 
+
+    private function jsonCreateUser(Array $users, int $page, int $perpage)
+    {
+        $response = array();
+        if (isset($users)) {
+            $count = count($users);
+            $users = array_slice($users, ($page - 1) * $perpage, $perpage);
+            foreach ($users as $user) {
+                $response[] = array(
+                    'id' => $user->getId(),
+                    'email' => $user->getEmail(),
+                    'name' => $user->getName(),
+                    'enabled' => $user->getEnabled(),
+                    'dispatch' => $user->getDispatch(),
+                    'roles' => $user->getRoles()
+                );
+            }
+        }
+        return new JsonResponse(array('user' => $response, 'count' => $count));
+    }
 
     private function jsonCreateNews(Array $news, int $page, int $perpage)
     {

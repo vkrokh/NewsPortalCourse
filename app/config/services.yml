@@ -35,3 +35,7 @@ services:
     app.ajax.json:
             class: AppBundle\Utils\AjaxUtils
             arguments: ['@service_container']
+
+    app.security.users:
+            class: AppBundle\Utils\UserUtils
+            arguments: ['@service_container']
