@@ -1,10 +1,10 @@
-$.fn.ajaxgrid = function(options) {
+$.fn.ajaxgrid = function (options) {
     checkOptions(options);
 
     var ajaxElementLink = options.dataUrl;
     var rootElement = this[0];
     var table;
-    var tableBody =document.createElement('tbody');
+    var tableBody = document.createElement('tbody');
     var paginationWrapper = document.getElementById('pagination-wrapper');
     var paginationUlCSS = 'btn-group';
     var paginationLiCSS = 'btn-group__item';
@@ -39,6 +39,7 @@ $.fn.ajaxgrid = function(options) {
         table.appendChild(tableBody);
         return table;
     }
+
     function createTableHeader() {
         var tableHead = document.createElement('thead');
         var tableRow = document.createElement('tr');
@@ -62,14 +63,31 @@ $.fn.ajaxgrid = function(options) {
 
 
         }
+
+
         var tableHeader = document.createElement('th');
-        tableHeader.classList.add('table-header', 'text-center');
-        tableHeader.setAttribute('inactive', 'false');
-        tableHeader.innerHTML = 'Edit';
+        tableHeader.setAttribute('class','edit-head');
+        var dropdown = document.createElement('select');
+        dropdown.setAttribute('class', 'dropdown');
+        var li = document.createElement('option');
+        li.setAttribute('value', 5);
+        li.innerHTML = '5';
+        dropdown.appendChild(li);
+        var li = document.createElement('option');
+        li.setAttribute('value', 10);
+        li.innerHTML = '10';
+        dropdown.appendChild(li);
+        var li = document.createElement('option');
+        li.setAttribute('value', 15);
+        li.innerHTML = '15';
+        dropdown.appendChild(li);
+        tableHeader.appendChild(dropdown);
+        tableHeader.innerHTML += 'Edit';
         tableRow.appendChild(tableHeader);
         tableHead.appendChild(tableRow);
         return tableHead;
     }
+
     function createTableRow(element) {
         var tableRow = document.createElement('tr');
         for (var i = 0; i < options.sortableColumns.length; i++) {
@@ -81,13 +99,14 @@ $.fn.ajaxgrid = function(options) {
         }
         var tableItem = document.createElement('td');
         var editLink = document.createElement('a');
-        editLink.setAttribute('href', editUrl+element.id);
+        editLink.setAttribute('href', editUrl + element.id);
         editLink.classList.add('btn', 'btn-default');
         editLink.innerHTML = 'Edit';
         tableItem.appendChild(editLink);
         tableRow.appendChild(tableItem);
         return tableRow;
     }
+
     function createPaginationLi(number, active) {
         var li = document.createElement('li');
         li.setAttribute('class', paginationLiCSS);
@@ -101,16 +120,18 @@ $.fn.ajaxgrid = function(options) {
 
         return li;
     }
+
     function createPaginationControl(type) {
         var li = document.createElement('li');
         li.setAttribute('class', paginationLiCSS);
         var i = document.createElement('i');
-        i.setAttribute('class', 'i-chevron-'+type);
+        i.setAttribute('class', 'i-chevron-' + type);
         i.setAttribute('control', type);
         li.appendChild(i);
 
         return li;
     }
+
     function highlightPaginator(node) {
         if (activePaginator) {
             activePaginator.classList.remove('current');
@@ -119,6 +140,7 @@ $.fn.ajaxgrid = function(options) {
         activePaginator.classList.add('class', 'current');
         activePaginatorNumber = parseInt(activePaginator.innerHTML);
     }
+
     function delegatePaginationClick(event) {
         var target = event.target;
         if (target.tagName === 'LI' || target.tagName === "DIV") {
@@ -144,12 +166,14 @@ $.fn.ajaxgrid = function(options) {
             getElementsAjax();
         }
     }
+
     function deleteChilds(element) {
         while (element.firstChild) {
             element.removeChild(element.firstChild);
         }
         return element;
     }
+
     function createPaginationView(elementsOnPage, allElements, activeElement) {
         deleteChilds(paginationWrapper);
         var paginationList = document.createElement('ol');
@@ -178,6 +202,7 @@ $.fn.ajaxgrid = function(options) {
         paginationWrapper.appendChild(paginationList);
 
     }
+
     function getElementsAjax() {
         deleteChilds(tableBody);
         $.getJSON(ajaxElementLink, {
@@ -187,19 +212,20 @@ $.fn.ajaxgrid = function(options) {
             order: sortOrder,
             filterbyfield: filterbyfield,
             pattern: pattern
-        }, function(JSON_Data) {
+        }, function (JSON_Data) {
             var elemets = JSON_Data[key];
             elementsInDatabase = JSON_Data.count;
             createPaginationView(paginatorElementsOnPage, elementsInDatabase, activePaginatorNumber);
-            $.each(elemets, function(index, element) {
+            $.each(elemets, function (index, element) {
                 var readyElement = createTableRow(element);
                 tableBody.appendChild(readyElement);
             });
         });
 
     }
+
     function highlightRow(node) {
-        if (activeRow && activeRow !=node) {
+        if (activeRow && activeRow != node) {
             activeRow.classList.remove('active-row');
             activeRow.removeAttribute('order');
             activeRow.classList.remove('table-header-bottom');
@@ -210,6 +236,7 @@ $.fn.ajaxgrid = function(options) {
         activeRowField = activeRow.getAttribute('field');
         sortOrder = activeRow.getAttribute('order');
     }
+
     function delegateTableHeaderClick(event) {
         var target = event.target;
         if (target.tagName === 'INPUT') {
@@ -233,6 +260,7 @@ $.fn.ajaxgrid = function(options) {
             return;
         }
     }
+
     function onInputKeyDown(event) {
         activeInput = event.target;
         if (event.keyCode === 13) {
@@ -247,7 +275,7 @@ $.fn.ajaxgrid = function(options) {
                 sortOrder = '';
                 filterbyfield = event.target.getAttribute('field');
                 pattern = event.target.value;
-                activePaginatorNumber =1;
+                activePaginatorNumber = 1;
                 getElementsAjax();
             }
         } else if (event.keyCode === 8 || event.keyCode === 46) {
@@ -256,11 +284,12 @@ $.fn.ajaxgrid = function(options) {
                 sortOrder = '';
                 filterbyfield = '';
                 pattern = '';
-                activePaginatorNumber =1;
+                activePaginatorNumber = 1;
                 getElementsAjax();
             }
         }
     }
+
     function declareInputKeyDown() {
         var inputs = document.getElementsByClassName('filter-input');
         for (var i = 0; i < inputs.length; i++) {
@@ -269,6 +298,12 @@ $.fn.ajaxgrid = function(options) {
             }
         }
     }
+
+    $('select').on('change', function () {
+        paginatorElementsOnPage = this.value;
+        getElementsAjax();
+    });
+
     function checkOptions(options) {
         if (!options.dataUrl) {
             throw 'Wrong "dataUrl" exception';
@@ -283,6 +318,7 @@ $.fn.ajaxgrid = function(options) {
             options.rowsPerPage = 5;
         }
     }
+
     function clearInputs(target) {
         var inputs = document.getElementsByClassName('filter-input');
         for (var i = 0; i < inputs.length; i++) {
@@ -292,7 +328,7 @@ $.fn.ajaxgrid = function(options) {
                 sortOrder = '';
                 filterbyfield = '';
                 pattern = '';
-                activePaginatorNumber =1;
+                activePaginatorNumber = 1;
                 getElementsAjax();
             }
         }

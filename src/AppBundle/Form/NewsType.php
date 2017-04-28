@@ -17,7 +17,7 @@ class NewsType extends AbstractType
         $builder->add('name')->add('description')
             ->add('parentCategories', EntityType::class, array(
                 'class' => 'AppBundle:Category',
-                'multiple' =>  false,
+                'multiple' => false,
                 'choice_label' => 'name',
             ))
             ->add('similarNews', EntityType::class, array(

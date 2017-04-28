@@ -58,15 +58,4 @@ class UserController extends Controller
         );
     }
 
-
-    /**
-     * @Route("/ajax/user", name="ajax_user")
-     */
-    public function getAjaxUserAction()
-    {
-        return new JsonResponse('');
-    }
-
-
-
 }

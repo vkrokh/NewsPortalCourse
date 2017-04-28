@@ -59,7 +59,8 @@ class NewsControler extends Controller
             'news/newsCreate.html.twig',
             array(
                 'form' => $form->createView(),
-                'errors' => $errors
+                'errors' => $errors,
+                'id' => ''
             )
         );
     }
@@ -71,11 +72,18 @@ class NewsControler extends Controller
         }
         if (!in_array($news, $category->getNews()->toArray())) {
             $category->addNews($news);
+            $news->addParentCategory($category);
         }
-        var_dump(!in_array($news, [$category->getNews()]));
-
         $this->setAllParent($category->getParentCategory(), $news);
     }
+
+
+    private function removeOld($category, $news)
+    {
+        $category->removeNews($news);
+        $news->removeParentCategory($category);
+    }
+
 
     /**
      * @Route("/edit/{newsId}", name="news_edit")
@@ -86,11 +94,15 @@ class NewsControler extends Controller
         $news = $showNewsService->showNews($newsId);
         $form = $this->createForm(NewsType::class, $news);
         $oldParents = $news->getParentCategories();
+        foreach ($oldParents as $old) {
+            $this->removeOld($old, $news);
+        }
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             foreach ($news->getParentCategories() as $category) {
                 $this->setAllParent($category, $news);
             }
+
             $this->container->get('app.security.shownews')->saveNews($news);
             return $this->redirect($this->generateUrl('admin_news'));
         }
@@ -99,9 +111,19 @@ class NewsControler extends Controller
             'news/newsCreate.html.twig',
             array(
                 'form' => $form->createView(),
-                'errors' => $errors
+                'errors' => $errors,
+                'id' => $newsId
             )
         );
+    }
+
+    /**
+     * @Route("/delete/{newsId}", name="news_delete")
+     */
+    public function deleteNews(int $newsId)
+    {
+        $this->get('app.security.shownews')->deleteNews($newsId);
+        return $this->redirect($this->generateUrl('admin_news'));
     }
 
 

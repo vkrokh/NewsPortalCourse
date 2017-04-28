@@ -17,6 +17,15 @@ div.textarea > div > textarea {
     overflow-x: hidden;
 }
 
+
+.active-row {
+    color: #ee9f30;
+}
+
+.edit-head{
+    color: black;
+}
+
 .tree-item-active {
     background: #eb9316;
 }
@@ -64,6 +73,14 @@ div.textarea > div > textarea {
     content: '';
 }
 
+.tree-item-active {
+    background: #eb9316;
+}
+
+.tree-item-active:hover {
+    background: #ee9f30;
+}
+
 .tree-item-control-opened::after {
     position: absolute;
     width: 16px;
@@ -72,6 +89,10 @@ div.textarea > div > textarea {
     top: 12px;
     background: url('../src/arrow-down.png');
     content: '';
+}
+
+.admin-news{
+    margin-left: -50%;
 }
 
 
@@ -252,6 +273,7 @@ blockquote.pull-right {
     }
 }
 
+
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
@@ -272,6 +294,28 @@ blockquote.pull-right {
 ul.nav li.dropdown:hover ul.dropdown-menu {
     display: block;
 }
+
+.btn-group {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.btn-group__item {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    float: left;
+}
+
+
+.btn-group__item .current {
+    box-shadow: inset 0px -4px 0px 0px #ee9f30;
+    color: #ee9f30;
+    font-weight: bold;
+}
+
 
 .dropdown-menu {
     font-family: "Oswald", sans-serif;

@@ -43,6 +43,14 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
         return $result;
     }
 
+    public function deleteNewsFromDataBase(int $id)
+    {
+        $entityManager = $this->getEntityManager();
+        $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
+        $entityManager->remove($news);
+        $entityManager->flush();
+    }
+
     public function sendToDataBase(News $news)
     {
         $entityManager = $this->getEntityManager();

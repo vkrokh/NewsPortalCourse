@@ -20,7 +20,18 @@ services:
     app.security.shownews:
         class: AppBundle\Utils\NewsUtils
         arguments: ['@service_container']
+
+    app.security.restore:
+            class: AppBundle\Utils\RestoreUtils
+            arguments: ['@service_container','@app.security.tokengenerator','@swiftmailer.mailer','@templating','@router']
+
+
     app.twig.myfilter:
             class: AppBundle\Twig\AppExtending
             tags:
                 - { name: twig.extension }
+
+
+    app.ajax.json:
+            class: AppBundle\Utils\AjaxUtils
+            arguments: ['@service_container']

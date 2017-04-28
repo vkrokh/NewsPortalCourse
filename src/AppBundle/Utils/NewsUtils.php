@@ -29,6 +29,13 @@ class NewsUtils
         $newsRepository->sendToDataBase($news);
     }
 
+    public function deleteNews(int $id)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $newsRepository = $doctrine->getRepository('AppBundle:News');
+        $newsRepository->deleteNewsFromDataBase($id);
+    }
+
     public function showNews(int $id)
     {
         $doctrine = $this->container->get('doctrine');

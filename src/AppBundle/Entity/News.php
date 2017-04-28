@@ -65,7 +65,7 @@ class News
 
 
     /**
-     * @ManyToMany(targetEntity="News")
+     * @ManyToMany(targetEntity="News" , cascade={"persist"})
      * @JoinTable(name="news_similar",
      *      joinColumns={@JoinColumn(name="news_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="similar_id", referencedColumnName="id")}

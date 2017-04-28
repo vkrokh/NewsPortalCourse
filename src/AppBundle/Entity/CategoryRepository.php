@@ -14,13 +14,20 @@ use PDO;
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function sendToDataBaste(Category $category)
+    public function sendToDataBase(Category $category)
     {
         $entityManager = $this->getEntityManager();
         $entityManager->persist($category);
         $entityManager->flush();
     }
 
+    public function deleteFromDataBase(int $categoryId)
+    {
+        $entityManager = $this->getEntityManager();
+        $category = $entityManager->getRepository('AppBundle:Category')->findOneById($categoryId);
+        $entityManager->remove($category);
+        $entityManager->flush();
+    }
 
     private function getSortField(string $sortFieled)
     {

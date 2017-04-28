@@ -44,7 +44,7 @@ class Category
     private $parentCategory;
 
     /**
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="parentCategory")
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parentCategory" , cascade={"remove"})
      */
     private $subCategory;
 

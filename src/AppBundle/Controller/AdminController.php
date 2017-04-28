@@ -25,8 +25,6 @@ class AdminController extends Controller
      */
     public function adminPageCategoryAction(Request $request)
     {
-        var_dump($request->headers->get('referer'));
-
         return $this->render('admin/adminCategory.html.twig');
     }
     /**
