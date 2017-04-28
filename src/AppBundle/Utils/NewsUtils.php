@@ -9,6 +9,7 @@
 namespace AppBundle\Utils;
 
 use AppBundle\Entity\Category;
+use AppBundle\Entity\News;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class NewsUtils
@@ -21,16 +22,18 @@ class NewsUtils
         $this->container = $container;
     }
 
-    public function getSimilar(Array $newsId)
+    public function saveNews(News $news)
     {
-        $allSimilarNews = Array();
         $doctrine = $this->container->get('doctrine');
         $newsRepository = $doctrine->getRepository('AppBundle:News');
-        foreach ($newsId as $oneNewsId) {
-            $similarNews = $newsRepository->getSimilarNewsFromDataBase($oneNewsId);
-            array_push($allSimilarNews,$similarNews);
-        }
-        return $allSimilarNews;
+        $newsRepository->sendToDataBase($news);
+    }
+
+    public function deleteNews(int $id)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $newsRepository = $doctrine->getRepository('AppBundle:News');
+        $newsRepository->deleteNewsFromDataBase($id);
     }
 
     public function showNews(int $id)

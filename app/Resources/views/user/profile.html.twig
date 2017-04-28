@@ -8,9 +8,9 @@
     <h3>Site role : {{ user.roles[0] }}</h3>
     <h3>Email address : {{ user.email }}</h3>
     {% if user.dispatch %}
-        <h3>Daily mail : Subscribe  <a href="{{ url('user_dispatch') }}">Click to unsubscribe</a></h3>
+        <h3>Daily mail : Subscribe <a href="{{ url('user_dispatch') }}">Click to unsubscribe</a></h3>
     {% else %}
-        <h3>Daily mail : Unsubscribe   <a href="{{ url('user_dispatch') }}"> Click to subscribe</a> </h3>
+        <h3>Daily mail : Unsubscribe <a href="{{ url('user_dispatch') }}"> Click to subscribe</a></h3>
     {% endif %}
 {% endblock %}
 

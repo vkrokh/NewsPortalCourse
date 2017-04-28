@@ -8,13 +8,78 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
+use AppBundle\Form\CategoryType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
 class CategoryController extends Controller
 {
+
+    /**
+     * @Route("/category/edit/{categoryId}/", name="category_edit")
+     */
+    public function editCategory(Request $request, int $categoryId)
+    {
+        $categoryService = $this->get('app.security.showcategory');
+        $category = $categoryService->getCategory($categoryId);
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $categoryService->addCategory($category);
+            return $this->redirect($this->generateUrl('admin_category'));
+        }
+        $errors = (string)$form->getErrors(true);
+        return $this->render(
+            'category/categoryCreate.html.twig',
+            array(
+                'form' => $form->createView(),
+                'errors' => $errors,
+                'id' => $categoryId
+            )
+        );
+    }
+
+
+    /**
+     * @Route("/category/delete/{categoryId}/", name="category_delete")
+     */
+    public function deleteCategory(Request $request, int $categoryId)
+    {
+        $categoryService = $this->get('app.security.showcategory');
+        $categoryService->deleteCategory($categoryId);
+        return $this->redirect($this->generateUrl('admin_category'));
+    }
+
+    /**
+     * @Route("/category/create/", name="category_create")
+     */
+    public function createCategory(Request $request)
+    {
+        $categoryService = $this->get('app.security.showcategory');
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $categoryService->addCategory($category);
+            return $this->redirect($this->generateUrl('admin_category'));
+        }
+        $errors = (string)$form->getErrors(true);
+        return $this->render(
+            'category/categoryCreate.html.twig',
+            array(
+                'form' => $form->createView(),
+                'errors' => $errors,
+                'id' => ''
+            )
+        );
+    }
+
+
     /**
      * @Route("/category/{categoryId}/{page}/{sortField}/{sortType}", name="category")
      */

@@ -14,13 +14,20 @@ use PDO;
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function sendToDataBaste(Category $category)
+    public function sendToDataBase(Category $category)
     {
         $entityManager = $this->getEntityManager();
         $entityManager->persist($category);
         $entityManager->flush();
     }
 
+    public function deleteFromDataBase(int $categoryId)
+    {
+        $entityManager = $this->getEntityManager();
+        $category = $entityManager->getRepository('AppBundle:Category')->findOneById($categoryId);
+        $entityManager->remove($category);
+        $entityManager->flush();
+    }
 
     private function getSortField(string $sortFieled)
     {
@@ -35,7 +42,7 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
         $entityManager = $this->getEntityManager();
         $sortField = 'news.' . $this->getSortField($sortField);
         $sql = 'SELECT news.name,news.description, news.views, news.created_at, news.id , news.user_name  FROM news_category 
-                INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :id ORDER BY '.$sortField.' '.$sortType;
+                INNER JOIN news WHERE news.id = news_category.news_id AND news_category.category_id = :id ORDER BY ' . $sortField . ' ' . $sortType;
         $stmt = $entityManager->getConnection()->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();

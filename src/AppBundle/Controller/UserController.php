@@ -3,21 +3,20 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
-use AppBundle\Form\EditType;
 use AppBundle\Form\RegisterType;
+use AppBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @Route("/user")
- */
+
 class UserController extends Controller
 {
 
     /**
-     * @Route("/", name="user_profile")
+     * @Route("/user", name="user_profile")
      */
     public function profilePageAction()
     {
@@ -27,7 +26,7 @@ class UserController extends Controller
 
 
     /**
-     * @Route("/dispatch", name="user_dispatch")
+     * @Route("/user/dispatch", name="user_dispatch")
      */
     public function dispatchChangeAction()
     {
@@ -36,28 +35,38 @@ class UserController extends Controller
         return $this->redirect($this->generateUrl('user_profile'));
     }
 
+
     /**
-     * @Route("/edit", name="user_edit")
+     * @Route("/user/edit/{userId}", name="user_edit")
      */
-    public function editUserAction(Request $request)
+    public function editUserAction(Request $request, int $userId)
     {
-        $user = new User();
-        $form = $this->createForm(EditType::class, $user);
+        $userService = $this->get('app.security.users');
+        $user = $userService->getUserById($userId);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $registerService = $this->get('app.security.register');
-//            $registerService->registerUser($user);
-//            return $this->redirectToRoute('user_login');
-//        }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userService->saveUser($user);
+            return $this->redirect($this->generateUrl('admin_users'));
+        }
         $errors = (string)$form->getErrors(true);
         return $this->render(
-            'user/edit.html.twig',
+            'user/userCreate.html.twig',
             array(
                 'form' => $form->createView(),
-                'errors' => $errors
+                'errors' => $errors,
+                'id' => $userId
             )
         );
     }
 
+
+    /**
+     * @Route("/user/delete/{userId}", name="user_delete")
+     */
+    public function deleteUserAction(int $userId)
+    {
+
+    }
 
 }

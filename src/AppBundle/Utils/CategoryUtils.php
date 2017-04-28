@@ -22,6 +22,13 @@ class CategoryUtils
         $this->container = $container;
     }
 
+    public function deleteCategory(int $categoryId)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
+        $categoryRepository->deleteFromDataBase($categoryId);
+    }
+
 
     public function addCategory(Category $category)
     {

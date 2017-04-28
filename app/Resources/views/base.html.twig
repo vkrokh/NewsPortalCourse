@@ -25,6 +25,7 @@
             <a href="{{ path('category', {'categoryId': '1'}) }}"><h5>News Portal</h5></a>
         </div>
 
+
         <div class="span7 navigation">
             <div class="navbar">
 
@@ -33,10 +34,16 @@
                     {{ knp_menu_render('AppBundle:Menu:mainMenu') }}
                     {% if is_granted('ROLE_CONTENT_MANAGER') %}
                         <ul class="nav">
-                            <li>
-                                <a href="{{ path('admin_page') }}">
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i> Admin Page
-                                </a>
+                            <li class="dropdown">
+                                <a>Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('admin_category') }}">Category</a></li>
+                                    <li><a href="{{ path('admin_news') }}">News</a></li>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a href="{{ path('admin_users') }}">User</a></li>
+                                    {% endif %}
+
+                                </ul>
                             </li>
                         </ul>
                     {% endif %}
@@ -45,7 +52,10 @@
             </div>
         </div>
     </div>
+    {% block admin %}
+    {% endblock %}
     <div class="container main-container">
+
         <div class="row">
             <div class="span8 blog">
                 {% block body %}

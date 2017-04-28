@@ -21,12 +21,26 @@ use Symfony\Component\Translation\Loader\ArrayLoader;
 class AdminController extends Controller
 {
     /**
-     * @Route("/", name="admin_page")
+     * @Route("/category", name="admin_category")
      */
-    public function adminPageAction(Request $request)
+    public function adminPageCategoryAction(Request $request)
     {
-       var_dump($request->headers->get('referer'));
-        return $this->render('admin/adminPageView.html.twig');
+        return $this->render('admin/adminCategory.html.twig');
+    }
+    /**
+     * @Route("/news", name="admin_news")
+     */
+    public function adminPageNewsAction(Request $request)
+    {
+
+        return $this->render('admin/adminNews.html.twig');
+    }
+    /**
+     * @Route("/user", name="admin_users")
+     */
+    public function adminPageUsersAction(Request $request)
+    {
+        return $this->render('admin/adminUsers.html.twig');
     }
 
 }

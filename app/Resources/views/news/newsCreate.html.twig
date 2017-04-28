@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container pagination-centered form-group">
+        {% if errors %}
+            <div class="alert alert-danger">{{ errors }}</div>
+        {% endif %}
+        {{ form_start(form) }}
+
+        {{ form_row(form.name, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+        <div class="textarea">
+            {{ form_row(form.description, {'attr': {'class': 'form-control'},
+                'label_attr': {'class': 'control-label'}
+            }) }}
+        </div>
+
+        {{ form_row(form.similarNews, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        {{ form_row(form.parentCategories, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        <button type="submit" class="form-control btn-success">Save</button>
+        {% if id %}
+            <button class="Form-control btn-danger" type="button"><a
+                        href="{{ path('news_delete', {'newsId': id} ) }}" style="color: white;">Delete</a>
+            </button>
+        {% endif %}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+
+{% block search %}
+{% endblock %}

@@ -8,8 +8,10 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\JoinColumn;
@@ -49,7 +51,7 @@ class News
     /**
      * @ORM\Column(name="views", type="integer")
      */
-    private $numberOfViews;
+    private $numberOfViews = 0;
 
     /**
      * @ManyToMany(targetEntity="Category", mappedBy="news")
@@ -61,10 +63,17 @@ class News
      */
     private $user;
 
+
     /**
-     * @ORM\Column(name="similar_news" , type="array")
+     * @ManyToMany(targetEntity="News" , cascade={"persist"})
+     * @JoinTable(name="news_similar",
+     *      joinColumns={@JoinColumn(name="news_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="similar_id", referencedColumnName="id")}
+     *      )
+     * @Assert\Count(max = 5,
+     * maxMessage = "You cannot specify more than {{ limit }} news")
      */
-    private $similarNewsId;
+    private $similarNews;
 
 
     /**
@@ -146,7 +155,10 @@ class News
      */
     public function getCreatedAt()
     {
-        return $this->createdAt->format('Y-m-d H:i:s');
+        if ($this->createdAt) {
+            return $this->createdAt->format('Y-m-d H:i:s');
+        }
+        return null;
     }
 
 
@@ -160,6 +172,14 @@ class News
     public function setNumberOfViews($numberOfViews)
     {
         $this->numberOfViews = $numberOfViews;
+
+        return $this;
+    }
+
+
+    public function setParentCategories($parentCategory)
+    {
+        $this->parentCategories[] = $parentCategory;
 
         return $this;
     }
@@ -180,7 +200,7 @@ class News
      */
     public function __construct()
     {
-        $this->parentCategories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->parentCategories = new ArrayCollection();
     }
 
     /**
@@ -221,11 +241,11 @@ class News
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param string $user
      *
      * @return News
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(string $user = null)
     {
         $this->user = $user;
 
@@ -235,34 +255,45 @@ class News
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return string
      */
     public function getUser()
     {
         return $this->user;
     }
 
+
     /**
-     * Set similarNewsId
+     * Add similarNews
      *
-     * @param array $similarNewsId
+     * @param \AppBundle\Entity\News $similarNews
      *
      * @return News
      */
-    public function setSimilarNewsId($similarNewsId)
+    public function addSimilarNews(\AppBundle\Entity\News $similarNews)
     {
-        $this->similarNewsId = $similarNewsId;
+        $this->similarNews[] = $similarNews;
 
         return $this;
     }
 
     /**
-     * Get similarNewsId
+     * Remove similarNews
      *
-     * @return array
+     * @param \AppBundle\Entity\News $similarNews
      */
-    public function getSimilarNewsId()
+    public function removeSimilarNews(\AppBundle\Entity\News $similarNews)
     {
-        return $this->similarNewsId;
+        $this->similarNews->removeElement($similarNews);
+    }
+
+    /**
+     * Get similarNews
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSimilarNews()
+    {
+        return $this->similarNews;
     }
 }
