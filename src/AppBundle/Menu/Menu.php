@@ -41,12 +41,12 @@ class Menu implements ContainerAwareInterface
 
     public function addProfileMenu($menu)
     {
-        $menu->addChild('Profile', array(
+        $menu->addChild('profile', array(
             'route' => 'user_profile'
         ))
             ->setAttribute('class', 'dropdown')
             ->setChildrenAttribute('class', 'dropdown-menu');
-        $menu['Profile']->addChild('Logout', array(
+        $menu['profile']->addChild('logout', array(
             'route' => 'user_logout'
         ));
     }

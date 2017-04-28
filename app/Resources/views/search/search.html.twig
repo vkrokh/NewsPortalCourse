@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Search{% endblock %}
+{% block title %}{{ 'search'|trans }}{% endblock %}
 {% block body %}
 
     {% for qnews in  news %}
@@ -12,7 +12,7 @@
                 </p>
                 <div class="post-summary-footer">
                     <button class="btn btn-small btn-inverse" type="button"><a
-                                href="{{ path('news', {'newsId': qnews.id}) }}">Read more</a></button>
+                                href="{{ path('news', {'newsId': qnews.id}) }}">{{ 'post.more'|trans }}</a></button>
                     <ul class="post-data">
                         <li><i class="icon-eye-open"></i>{{ qnews.numberOfViews }}</li>
                         <li><i class="icon-calendar"></i> {{ qnews.createdAt }}</li>

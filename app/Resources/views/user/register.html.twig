@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{{ 'register'|trans }}{% endblock %}
 
 {% block body %}
 
@@ -26,15 +26,15 @@
             'label_attr': {'class': 'control-label'}
         }) }}
 
-        <button type="submit" class="form-control btn-success">Register</button>
+        <button type="submit" class="form-control btn-success">{{ 'signup'|trans }}</button>
         {{ form_end(form) }}
         <div class="container">
             <a href="{{ path('user_login') }}">
-                Sign In Page
+                {{ 'signin'|trans }}
             </a>
             or
             <a href="{{ path('user_restore_view') }}">
-                Forgot the password?
+                {{ 'restore.email'|trans }}
             </a>
         </div>
     </div>

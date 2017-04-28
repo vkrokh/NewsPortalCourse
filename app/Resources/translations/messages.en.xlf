@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="search">
+                <source>search</source>
+                <target>Search</target>
+            </trans-unit>
+            <trans-unit id="profile">
+                <source>profile</source>
+                <target>Profile</target>
+            </trans-unit>
+            <trans-unit id="logout">
+                <source>logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="login">
+                <source>login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="rsignup">
+                <source>rsignup</source>
+                <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="form.user.name">
+                <source>form.user.name</source>
+                <target>Username</target>
+            </trans-unit>
+            <trans-unit id="form.user.password">
+                <source>form.user.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="form.user.cpassword">
+                <source>form.user.cpassword</source>
+                <target>Confirm Password</target>
+            </trans-unit>
+
+            <trans-unit id="form.user.email">
+                <source>form.user.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="signup">
+                <source>signup</source>
+                <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="signin">
+                <source>signin</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="psignin">
+                <source>psignin</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="admin">
+                <source>admin</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="restore.email">
+                <source>restore.email</source>
+                <target>Forgot the password?</target>
+            </trans-unit>
+            <trans-unit id="error">
+                <source>error</source>
+                <target>Error</target>
+            </trans-unit>
+            <trans-unit id="post.more">
+                <source>post.more</source>
+                <target>Read more!</target>
+            </trans-unit>
+            <trans-unit id="daily">
+                <source>daily</source>
+                <target>Daily mail</target>
+            </trans-unit>
+            <trans-unit id="subscribe">
+                <source>subscribe</source>
+                <target>Subscribe</target>
+            </trans-unit>
+            <trans-unit id="unsubscibe">
+                <source>unsubscribe</source>
+                <target>Unsubscribe</target>
+            </trans-unit>
+            <trans-unit id="post.title">
+                <source>post.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="post.category">
+                <source>post.category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="post.creator">
+                <source>post.creator</source>
+                <target>Author</target>
+            </trans-unit>
+            <trans-unit id="post.creationDate">
+                <source>post.creationDate</source>
+                <target>Date</target>
+            </trans-unit>
+            <trans-unit id="post.rating">
+                <source>post.rating</source>
+                <target>Rating</target>
+            </trans-unit>
+            <trans-unit id="send.email">
+                <source>send.email</source>
+                <target>Send email</target>
+            </trans-unit>
+
+            <trans-unit id="user.username">
+                <source>user.username</source>
+                <target>Username</target>
+            </trans-unit>
+            <trans-unit id="user.email">
+                <source>user.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="user.roles">
+                <source>user.roles</source>
+                <target>Role</target>
+            </trans-unit>
+
+            <trans-unit id="category.name">
+                <source>category.name</source>
+                <target>Category</target>
+            </trans-unit>
+
+            <trans-unit id="ROLE_USER">
+                <source>ROLE_USER</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CONTENT_MANAGER">
+                <source>ROLE_CONTENT_MANAGER</source>
+                <target>Manager</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ADMIN">
+                <source>ROLE_ADMIN</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="sort">
+                <source>sort</source>
+                <target>Sort by</target>
+            </trans-unit>
+            <trans-unit id="subcategories">
+                <source>subcategories</source>
+                <target>Sub Categories</target>
+            </trans-unit>
+            <trans-unit id="date">
+                <source>date</source>
+                <target>Date</target>
+            </trans-unit>
+            <trans-unit id="views">
+                <source>views</source>
+                <target>Views</target>
+            </trans-unit>
+            <trans-unit id="recovery">
+                <source>recovery</source>
+                <target>Restore password</target>
+            </trans-unit>
+            <trans-unit id="register">
+                <source>register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="successful.activation">
+                <source>"successful.activation</source>
+                <target>"Successful activation</target>
+            </trans-unit>
+            <trans-unit id="failed.activation">
+                <source>"failed.activation</source>
+                <target>"Activation failed</target>
+            </trans-unit>
+            <trans-unit id="mail.check">
+                <source>"mail.check</source>
+                <target>"Check your email to restore password</target>
+            </trans-unit>
+            <trans-unit id="account.lock">
+                <source>"account.lock</source>
+                <target>"Your account locked</target>
+            </trans-unit>
+            <trans-unit id="new.password">
+                <source>"new.password</source>
+                <target>"New password created</target>
+            </trans-unit>
+            <trans-unit id="old.token">
+                <source>"old.token</source>
+                <target>"Too old token</target>
+            </trans-unit>
+            <trans-unit id="thanks.for.registering">
+                <source>thanks.for.registering</source>
+                <target>Thank you for registering</target>
+            </trans-unit>
+            <trans-unit id="verify">
+                <source>verify</source>
+                <target>To access your account, please verify your email address</target>
+            </trans-unit>
+            <trans-unit id="verify.link">
+                <source>verify.link</source>
+                <target>Click here to verify it</target>
+            </trans-unit>
+            <trans-unit id="restore">
+                <source>restore</source>
+                <target>To restore your password click on link</target>
+            </trans-unit>
+            <trans-unit id="restore.link">
+                <source>restore.link</source>
+                <target>Click here to restore</target>
+            </trans-unit>
+            <trans-unit id="restore.title">
+                <source>restore.title</source>
+                <target>You try restore password on News Portal</target>
+            </trans-unit>
+            <trans-unit id="welcome">
+                <source>welcome</source>
+                <target>Welcome to New Portal</target>
+            </trans-unit>
+            <trans-unit id="cron.unsubscribe">
+                <source>cron.unsubscribe</source>
+                <target>You can unsubscribe from daily dispatch in your account</target>
+            </trans-unit>
+            <trans-unit id="similar.news">
+                <source>similar.news</source>
+                <target>Similar news</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>language</source>
+                <target>Language</target>
+            </trans-unit>
+            <trans-unit id="language.en">
+                <source>language.en</source>
+                <target>English</target>
+            </trans-unit>
+            <trans-unit id="lan.ru">
+                <source>language.ru</source>
+                <target>Russian</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
