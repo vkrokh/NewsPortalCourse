@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
  * @ORM\Table(name="user")
- * @UniqueEntity(fields="email", message="This email address is already in use")
+ * @UniqueEntity(fields="email", message="already.use.email")
  */
 class User implements AdvancedUserInterface
 {

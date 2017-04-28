@@ -11,8 +11,8 @@
 
                 </p>
                 <div class="post-summary-footer">
-                    <button class="btn btn-small btn-inverse" type="button"><a
-                                href="{{ path('news', {'newsId': qnews['id']}) }}">Read more</a></button>
+                    <button class="btn btn-inverse" type="button"><a
+                                href="{{ path('news', {'newsId': qnews['id']}) }}">{{ 'post.more'|trans }}</a></button>
                     <ul class="post-data">
                         <li><i class="icon-eye-open"></i>{{ qnews['views'] }}</li>
                         <li><i class="icon-calendar"></i> {{ qnews['created_at'] }}</li>
@@ -30,27 +30,27 @@
 
 {% block rightMenu %}
     <div class="sort-btns">
-        <h5>Sort By</h5>
-        <ul>
+        <h5>{{ 'sort'|trans }}</h5>
+        <ul class="post-category-list">
             <li>
-                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'date' }) }}">DATE
-                    ASC</a></li>
+                    <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'date' }) }}">{{ 'date'|trans }}
+                        ASC</a></li>
             <li>
-                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'date' }) }}">DATE
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'date' }) }}">{{ 'date'|trans }}
                     DESC</a></li>
             <li>
-                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'views' }) }}">VIEWS
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'views' }) }}">{{ 'views'|trans }}
                     DESC</a>
             </li>
             <li>
-                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'views' }) }}">VIEWS
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'views' }) }}">{{ 'views'|trans }}
                     ASC</a>
             </li>
         </ul>
 
 
     </div>
-    <h5 class="title-bg">Sub categories</h5>
+    <h5 class="title-bg">{{ 'subcategories'|trans }}</h5>
     <ul class="post-category-list">
         {% for qcategory in category.getSubCategory %}
             <li><a href="{{ path('category', {'categoryId': qcategory.id }) }}"><i

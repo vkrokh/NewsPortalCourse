@@ -13,10 +13,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 
+/**
+ * @Route("/{_locale}/category")
+ */
 class CategoryController extends Controller
 {
     /**
-     * @Route("/category/{categoryId}/{page}/{sortField}/{sortType}", name="category")
+     * @Route("/{categoryId}/{page}/{sortField}/{sortType}", name="category")
      */
     public function showCategory(
         int $categoryId = 1,

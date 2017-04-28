@@ -16,7 +16,7 @@ use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 
 /**
- * @Route("/search")
+ * @Route("/{_locale}/search")
  */
 class SearchController extends Controller
 {

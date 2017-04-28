@@ -35,7 +35,7 @@
                         <ul class="nav">
                             <li>
                                 <a href="{{ path('admin_page') }}">
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i> Admin Page
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'admin'|trans }}
                                 </a>
                             </li>
                         </ul>
@@ -57,9 +57,9 @@
                         <section>
                             <div class="input-append">
                                 <form action="{{ path('search_page') }}">
-                                    <input id="appendedInputButton" size="16" type="text" placeholder="Search"
+                                    <input id="appendedInputButton" size="16" type="text" placeholder="{{ 'search'|trans }} "
                                            name="query">
-                                    <button class="btn btn-inverse" type="submit">Search</button>
+                                    <button class="btn btn-inverse" type="submit">{{ 'search'|trans }}</button>
                                 </form>
                             </div>
                         </section>

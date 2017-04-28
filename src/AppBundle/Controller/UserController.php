@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route("/user")
+ * @Route("/{_locale}/user")
  */
 class UserController extends Controller
 {
@@ -35,6 +35,7 @@ class UserController extends Controller
         $this->get('app.security.activator')->dispatching($user);
         return $this->redirect($this->generateUrl('user_profile'));
     }
+
 
     /**
      * @Route("/edit", name="user_edit")

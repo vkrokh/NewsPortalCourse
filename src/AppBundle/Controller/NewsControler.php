@@ -9,24 +9,27 @@
 namespace AppBundle\Controller;
 
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+
 /**
- * @Route("/news")
+ * @Route("/{_locale}/news")
  */
 class NewsControler extends Controller
 {
     /**
      * @Route("/{newsId}", name="news")
      */
-    public function showNews(int $newsId)
+    public function showNews(int $newsId, Request $request)
     {
         $showNewsService = $this->get('app.security.shownews');
         $news = $showNewsService->showNews($newsId);
         $similarNews = $showNewsService->getSimilar($news->getSimilarNewsId());
-        return $this->render('news/news.html.twig', array('news' => $news,'similar'=>$similarNews));
+        $lastPage = $request->headers->get('referer');//TODO: no last page
+        return $this->render('news/news.html.twig', array('news' => $news,'similar'=>$similarNews, 'lastPage'=>$lastPage));
     }
 
 }

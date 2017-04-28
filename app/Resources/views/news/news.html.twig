@@ -24,7 +24,7 @@
 {% endblock %}
 
 {% block rightMenu %}
-    <h5 class="title-bg">Similar News</h5>
+    <h5 class="title-bg">{{ 'similar.news'|trans }}</h5>
     <ul class="post-category-list">
         {% for similarNews in similar %}
             <li>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="post-summary-footer">
                             <button class="btn btn-small btn-inverse" type="button"><a
-                                        href="{{ path('news', {'newsId': similarNews.id}) }}">Read more</a>
+                                        href="{{ path('news', {'newsId': similarNews.id}) }}">{{ 'post.more'|trans }}</a>
                             </button>
                         </div>
                     </div>

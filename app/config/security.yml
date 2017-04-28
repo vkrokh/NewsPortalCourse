@@ -29,15 +29,15 @@ security:
                  login_path: user_login
                  check_path: user_login
              logout:
-                 path:   /logout
-                 target: /login
+                 path:   user_logout
+                 target: user_login
 
 
 
      access_control:
          - { path: ^/admin , roles: ROLE_CONTENT_MANAGER }
-         - { path: ^/login , roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         - { path: ^/register , roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         - { path: ^/activate , roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         - { path: ^/restore , roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: /login , roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: /register , roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: /activate , roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: /restore , roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/ , roles: ROLE_USER }
