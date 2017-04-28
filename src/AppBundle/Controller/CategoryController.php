@@ -24,7 +24,7 @@ class CategoryController extends Controller
 {
 
     /**
-     * @Route("/category/edit/{categoryId}/", name="category_edit")
+     * @Route("/edit/{categoryId}/", name="category_edit")
      */
     public function editCategory(Request $request, int $categoryId)
     {
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
 
     /**
-     * @Route("/category/delete/{categoryId}/", name="category_delete")
+     * @Route("/delete/{categoryId}/", name="category_delete")
      */
     public function deleteCategory(Request $request, int $categoryId)
     {
@@ -59,7 +59,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/category/create/", name="category_create")
+     * @Route("/create/", name="category_create")
      */
     public function createCategory(Request $request)
     {

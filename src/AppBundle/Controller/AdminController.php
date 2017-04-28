@@ -16,7 +16,7 @@ use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 
 /**
- * @Route("/admin/{_locale}")
+ * @Route("/{_locale}/admin")
  */
 class AdminController extends Controller
 {

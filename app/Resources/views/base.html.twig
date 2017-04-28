@@ -33,10 +33,16 @@
                     {{ knp_menu_render('AppBundle:Menu:mainMenu') }}
                     {% if is_granted('ROLE_CONTENT_MANAGER') %}
                         <ul class="nav">
-                            <li>
-                                <a href="{{ path('admin_page') }}">
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'admin'|trans }}
-                                </a>
+                            <li class="dropdown">
+                                <a>Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('admin_category') }}">Category</a></li>
+                                    <li><a href="{{ path('admin_news') }}">News</a></li>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a href="{{ path('admin_users') }}">User</a></li>
+                                    {% endif %}
+
+                                </ul>
                             </li>
                         </ul>
                     {% endif %}
@@ -57,7 +63,8 @@
                         <section>
                             <div class="input-append">
                                 <form action="{{ path('search_page') }}">
-                                    <input id="appendedInputButton" size="16" type="text" placeholder="{{ 'search'|trans }} "
+                                    <input id="appendedInputButton" size="16" type="text"
+                                           placeholder="{{ 'search'|trans }} "
                                            name="query">
                                     <button class="btn btn-inverse" type="submit">{{ 'search'|trans }}</button>
                                 </form>

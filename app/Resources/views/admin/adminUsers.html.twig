@@ -3,9 +3,8 @@
 {% block title %}Admin Page Users{% endblock %}
 
  {% block javascripts %}
-     <script src="{{ asset('js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="{{ asset('js/ajaxGrid.js') }}" type="text/javascript"></script>
-     <script src="{{ asset('js/ajaxUser.js') }}" type="text/javascript"></script>
  {% endblock %}
 {% block body %}
     <div class="admin-news">
@@ -15,7 +14,18 @@
         <div id="pagination-wrapper" class="zui-pager col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">
         </div>
     </div>
-
+    <script>
+        $("#entities-grid").ajaxgrid({
+            dataUrl: "/ajax/user",
+            editUrl: "/{{ app.request.getLocale() }}/user/edit/",
+            sortableColumns: ["id", "email", "name", "enabled", "dispatch",
+                "roles"],
+            filterableColumns: ["id", "email", "name", "enabled", "dispatch",
+                "roles"],
+            rowsPerPage: 5,
+            key: 'user'
+        });
+    </script>
 {% endblock %}
 {% block rigthMenu %}
 {% endblock %}

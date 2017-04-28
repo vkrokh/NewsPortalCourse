@@ -60,7 +60,7 @@ class Menu implements ContainerAwareInterface
             ))->setAttribute('class', 'dropdown')
                 ->setChildrenAttribute('class', 'dropdown-submenu');
 
-            $this->abc($newMenu, $subCategory);
+            $this->addDropdownItems($newMenu, $subCategory);
         }
     }
 

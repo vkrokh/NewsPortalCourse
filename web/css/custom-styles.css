@@ -9,6 +9,69 @@ html, body {
 	height: 100%;
 	min-height: 100%;
 }
+div.textarea > div > textarea {
+	width: 80%;
+	height: 200px;
+	resize: none;
+	overflow-x: hidden;
+}
+
+.active-row {
+	color: #ee9f30;
+}
+
+.block > div {
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#appbundle_user_enabled #appbundle_user_dispatch {
+	display: inline-block;
+}
+
+.edit-head {
+	color: black;
+}
+
+.admin-news {
+	margin-left: -50%;
+}
+
+#appbundle_news_name {
+	width: 80%;
+}
+
+#appbundle_news_similarNews {
+	width: 80%;
+	height: 100px;
+}
+
+#appbundle_news_parentCategories {
+	width: 80%;
+}
+
+.btn-group {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.btn-group__item {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	height: 40px;
+	float: left;
+}
+
+.btn-group__item .current {
+	box-shadow: inset 0px -4px 0px 0px #ee9f30;
+	color: #ee9f30;
+	font-weight: bold;
+}
+
 
 @media (max-width: 767px) {
   body { padding-right: 0px; padding-left: 0px; }
@@ -498,7 +561,18 @@ ul.post-data li:last-child {padding-right: 0px;}
 
 /*** Blog Full Page ***/
 .post-content {background: #f8f8f8; overflow: auto;}
-.post-body {padding: 20px;}
+.post-body > p{
+	padding: 20px;
+	font-size: medium;
+	/*white-space: -moz-pre-wrap !important; !* Mozilla, since 1999 *!*/
+	/*white-space: -webkit-pre-wrap; !*Chrome & Safari *!*/
+	/*white-space: -pre-wrap; !* Opera 4-6 *!*/
+	/*white-space: -o-pre-wrap; !* Opera 7 *!*/
+	/*white-space: pre-wrap; !* css-3 *!*/
+	/*word-wrap: break-word; !* Internet Explorer 5.5+ *!*/
+	/*word-break: break-all;*/
+	/*white-space: normal;*/
+}
 .about-author img {float: left; margin-right: 20px;}
 
 /*** Comments ***/
