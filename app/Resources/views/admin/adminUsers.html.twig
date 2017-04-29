@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin Page Users{% endblock %}
+{% block title %}{{ 'user.list'|trans}}{% endblock %}
 
  {% block javascripts %}
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -8,7 +8,7 @@
  {% endblock %}
 {% block body %}
     <div class="admin-news">
-        <h1 class="text-center">User list</h1>
+        <h1 class="text-center">{{ 'user.list'|trans}}</h1>
         <div id="entities-grid">
         </div>
         <div id="pagination-wrapper" class="zui-pager col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">

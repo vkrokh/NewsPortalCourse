@@ -29,10 +29,10 @@
             'label_attr': {'class': 'control-label'}
         }) }}
 
-        <button type="submit" class="form-control btn-success">Save</button>
+        <button type="submit" class="form-control btn-success">{{ 'save'|trans }}</button>
         {% if id %}
             <button class="Form-control btn-danger" type="button"><a
-                        href="{{ path('user_delete', {'userId': id} ) }}" style="color: white;">Delete</a>
+                        href="{{ path('user_delete', {'userId': id} ) }}" style="color: white;">{{ 'delete'|trans }}</a>
             </button>
         {% endif %}
 

@@ -2,6 +2,18 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="news">
+                <source>news</source>
+                <target>News</target>
+            </trans-unit>
+            <trans-unit id="name">
+                <source>name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="parent.category">
+                <source>parent.category</source>
+                <target>Parent category</target>
+            </trans-unit>
             <trans-unit id="search">
                 <source>search</source>
                 <target>Search</target>
@@ -83,9 +95,13 @@
                 <source>post.title</source>
                 <target>Title</target>
             </trans-unit>
-            <trans-unit id="post.category">
-                <source>post.category</source>
-                <target>Category</target>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="categories.list">
+                <source>categories.list</source>
+                <target>Categories list</target>
             </trans-unit>
             <trans-unit id="post.creator">
                 <source>post.creator</source>
@@ -102,6 +118,10 @@
             <trans-unit id="send.email">
                 <source>send.email</source>
                 <target>Send email</target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Users</target>
             </trans-unit>
 
             <trans-unit id="user.username">
@@ -142,13 +162,21 @@
                 <source>subcategories</source>
                 <target>Sub Categories</target>
             </trans-unit>
-            <trans-unit id="date">
-                <source>date</source>
-                <target>Date</target>
+            <trans-unit id="date.up">
+                <source>date.up</source>
+                <target>Latest news</target>
             </trans-unit>
-            <trans-unit id="views">
-                <source>views</source>
-                <target>Views</target>
+            <trans-unit id="date.down">
+                <source>date.down</source>
+                <target>Older news</target>
+            </trans-unit>
+            <trans-unit id="views.up">
+                <source>views.up</source>
+                <target>Popular news</target>
+            </trans-unit>
+            <trans-unit id="views.down">
+                <source>views.down</source>
+                <target>Unpopular news</target>
             </trans-unit>
             <trans-unit id="recovery">
                 <source>recovery</source>
@@ -159,28 +187,28 @@
                 <target>Register</target>
             </trans-unit>
             <trans-unit id="successful.activation">
-                <source>"successful.activation</source>
-                <target>"Successful activation</target>
+                <source>successful.activation</source>
+                <target>Successful activation</target>
             </trans-unit>
             <trans-unit id="failed.activation">
-                <source>"failed.activation</source>
-                <target>"Activation failed</target>
+                <source>failed.activation</source>
+                <target>Activation failed</target>
             </trans-unit>
             <trans-unit id="mail.check">
-                <source>"mail.check</source>
-                <target>"Check your email to restore password</target>
+                <source>mail.check</source>
+                <target>Check your email to restore password</target>
             </trans-unit>
             <trans-unit id="account.lock">
-                <source>"account.lock</source>
-                <target>"Your account locked</target>
+                <source>account.lock</source>
+                <target>Your account locked</target>
             </trans-unit>
             <trans-unit id="new.password">
-                <source>"new.password</source>
-                <target>"New password created</target>
+                <source>new.password</source>
+                <target>New password created</target>
             </trans-unit>
             <trans-unit id="old.token">
-                <source>"old.token</source>
-                <target>"Too old token</target>
+                <source>old.token</source>
+                <target>Too old token</target>
             </trans-unit>
             <trans-unit id="thanks.for.registering">
                 <source>thanks.for.registering</source>
@@ -230,6 +258,52 @@
                 <source>language.ru</source>
                 <target>Russian</target>
             </trans-unit>
+            <trans-unit id="create.new">
+                <source>create.new</source>
+                <target>Create new</target>
+            </trans-unit>
+            <trans-unit id="news.list">
+                <source>news.list</source>
+                <target>News list</target>
+            </trans-unit>
+            <trans-unit id="user.list">
+                <source>user.list</source>
+                <target>User list</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="change">
+                <source>change</source>
+                <target>Change</target>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="sace">
+                <source>save</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="USER">
+                <source>USER</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="ADMIN">
+                <source>ADMIN</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="CONTENT MANAGER">
+                <source>CONTENT MANAGER</source>
+                <target>Content manager</target>
+            </trans-unit>
+
+
         </body>
     </file>
 </xliff>

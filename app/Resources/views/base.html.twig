@@ -34,12 +34,12 @@
                     {% if is_granted('ROLE_CONTENT_MANAGER') %}
                         <ul class="nav">
                             <li class="dropdown">
-                                <a>Admin</a>
+                                <a>{{ 'admin'|trans }}</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ path('admin_category') }}">Category</a></li>
-                                    <li><a href="{{ path('admin_news') }}">News</a></li>
+                                    <li><a href="{{ path('admin_category') }}">{{ 'categories'|trans }}</a></li>
+                                    <li><a href="{{ path('admin_news') }}">{{ 'news'|trans }}</a></li>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <li><a href="{{ path('admin_users') }}">User</a></li>
+                                        <li><a href="{{ path('admin_users') }}">{{ 'users'|trans }}</a></li>
                                     {% endif %}
 
                                 </ul>

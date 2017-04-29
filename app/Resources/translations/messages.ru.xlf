@@ -2,13 +2,25 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="title.news">
-                <source>title.news</source>
+            <trans-unit id="news">
+                <source>news</source>
                 <target>Новости</target>
             </trans-unit>
             <trans-unit id="search">
                 <source>search</source>
                 <target>Поиск</target>
+            </trans-unit>
+            <trans-unit id="change">
+                <source>change</source>
+                <target>Изменить</target>
+            </trans-unit>
+            <trans-unit id="name">
+                <source>name</source>
+                <target>Имя</target>
+            </trans-unit>
+            <trans-unit id="parent.category">
+                <source>parent.category</source>
+                <target>Родительская категория</target>
             </trans-unit>
             <trans-unit id="profile">
                 <source>profile</source>
@@ -114,6 +126,18 @@
                 <source>ROLE_USER</source>
                 <target>Пользователь</target>
             </trans-unit>
+            <trans-unit id="USER">
+                <source>USER</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="ADMIN">
+                <source>ADMIN</source>
+                <target>Администратор</target>
+            </trans-unit>
+            <trans-unit id="CONTENT MANAGER">
+                <source>CONTENT MANAGER</source>
+                <target>Контент менеджер</target>
+            </trans-unit>
             <trans-unit id="ROLE_CONTENT_MANAGER">
                 <source>ROLE_CONTENT_MANAGER</source>
                 <target>Редактор</target>
@@ -131,13 +155,29 @@
                 <source>subcategories</source>
                 <target>Подкатегории</target>
             </trans-unit>
-            <trans-unit id="date">
-                <source>date</source>
-                <target>Дате</target>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Категории</target>
             </trans-unit>
-            <trans-unit id="views">
-                <source>views</source>
-                <target>Количеству просмотров</target>
+            <trans-unit id="categories.list">
+                <source>categories.list</source>
+                <target>Список категорий</target>
+            </trans-unit>
+            <trans-unit id="date.up">
+                <source>date.up</source>
+                <target>Свежие новости</target>
+            </trans-unit>
+            <trans-unit id="views.up">
+                <source>views.up</source>
+                <target>Популярыне новости</target>
+            </trans-unit>
+            <trans-unit id="date.down">
+                <source>date.down</source>
+                <target>Старые новости</target>
+            </trans-unit>
+            <trans-unit id="views.down">
+                <source>views.down</source>
+                <target>Непопулярыне новости</target>
             </trans-unit>
             <trans-unit id="recovery">
                 <source>recovery</source>
@@ -222,6 +262,34 @@
             <trans-unit id="language.ru">
                 <source>language.ru</source>
                 <target>Русский</target>
+            </trans-unit>
+            <trans-unit id="create.new">
+                <source>create.new</source>
+                <target>Создать новую</target>
+            </trans-unit>
+            <trans-unit id="news.list">
+                <source>news.list</source>
+                <target>Список новостей</target>
+            </trans-unit>
+            <trans-unit id="user.list">
+                <source>user.list</source>
+                <target>Список пользователей</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Удалить</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Изменить</target>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>description</source>
+                <target>Описание</target>
+            </trans-unit>
+            <trans-unit id="save">
+                <source>save</source>
+                <target>Сохранить</target>
             </trans-unit>
         </body>
     </file>
