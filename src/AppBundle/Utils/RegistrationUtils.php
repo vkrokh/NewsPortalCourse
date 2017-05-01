@@ -43,9 +43,6 @@ class RegistrationUtils
         $encoder = $this->container->get('security.password_encoder');
         $password = $encoder->encodePassword($user, $user->getPlainPassword());
         $user->setPassword($password);
-        //TODO Set default
-        $user->setEnabled(false);
-        $user->setRoles('ROLE_USER');
         $this->sendUserToDataBase($user);
         $this->generateActivateToken($user);
     }

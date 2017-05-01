@@ -20,7 +20,9 @@
         $("#entities-grid").ajaxgrid({
             dataUrl: "/ajax/news",
             editUrl: "/{{ app.request.getLocale() }}/news/edit/",
-            columsName: ['Индентификатор', "Название", "Описание", "Дата Создания", "Автор", "Количество просмотров", "Редактировать"], //Translations
+            columsName: ["{{ 'id'|trans }}", "{{ 'name'|trans }}",
+                "{{ 'description'|trans }}", "{{ 'date'|trans }}",
+                "{{ 'author'|trans }}", "{{ 'count.of.view'|trans }}", "{{ 'edit'|trans }}"],
             sortableColumns: ["id", "name", "description", "createdAt", "user",
                 "numberOfViews"],
             filterableColumns: ["id", "name", "description", "createdAt", "user",

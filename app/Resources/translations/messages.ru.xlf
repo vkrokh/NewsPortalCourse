@@ -279,10 +279,6 @@
                 <source>delete</source>
                 <target>Удалить</target>
             </trans-unit>
-            <trans-unit id="edit">
-                <source>edit</source>
-                <target>Изменить</target>
-            </trans-unit>
             <trans-unit id="description">
                 <source>description</source>
                 <target>Описание</target>
@@ -290,6 +286,34 @@
             <trans-unit id="save">
                 <source>save</source>
                 <target>Сохранить</target>
+            </trans-unit>
+            <trans-unit id="dispatch">
+                <source>dispatch</source>
+                <target>Рассылка</target>
+            </trans-unit>
+            <trans-unit id="enabled">
+                <source>enabled</source>
+                <target>Активирован</target>
+            </trans-unit>
+            <trans-unit id="id">
+                <source>id</source>
+                <target>Идентификатор</target>
+            </trans-unit>
+            <trans-unit id="author">
+                <source>author</source>
+                <target>Автор</target>
+            </trans-unit>
+            <trans-unit id="count.of.view">
+                <source>count.of.view</source>
+                <target>Количество просмотров</target>
+            </trans-unit>
+            <trans-unit id="date">
+                <source>date</source>
+                <target>Дата создания</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Редактировать</target>
             </trans-unit>
         </body>
     </file>

@@ -274,10 +274,6 @@
                 <source>delete</source>
                 <target>Delete</target>
             </trans-unit>
-            <trans-unit id="edit">
-                <source>edit</source>
-                <target>Edit</target>
-            </trans-unit>
             <trans-unit id="change">
                 <source>change</source>
                 <target>Change</target>
@@ -302,8 +298,34 @@
                 <source>CONTENT MANAGER</source>
                 <target>Content manager</target>
             </trans-unit>
-
-
+            <trans-unit id="dispatch">
+                <source>dispatch</source>
+                <target>Dispatch</target>
+            </trans-unit>
+            <trans-unit id="enabled">
+                <source>enabled</source>
+                <target>Enabled</target>
+            </trans-unit>
+            <trans-unit id="id">
+                <source>id</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="author">
+                <source>author</source>
+                <target>Author</target>
+            </trans-unit>
+            <trans-unit id="count.of.view">
+                <source>count.of.view</source>
+                <target>Views</target>
+            </trans-unit>
+            <trans-unit id="date">
+                <source>date</source>
+                <target>Date</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Edit</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -80,7 +80,6 @@ class UserController extends Controller
      */
     public function createUserAction(Request $request)
     {
-        //TODO fix shit
         $userService = $this->get('app.security.users');
         $user = new User();
         $form = $this->createForm(UserType::class, $user);

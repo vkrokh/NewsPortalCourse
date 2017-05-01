@@ -20,7 +20,9 @@
         $("#entities-grid").ajaxgrid({
             dataUrl: "/ajax/user",
             editUrl: "/{{ app.request.getLocale() }}/user/edit/",
-            columsName: ['Индентификатор', "Email", "Имя", "Активность", "Подписка", "Роль","Редактировать"], //Translations
+            columsName: ["{{ 'id'|trans }}", "{{ 'user.email'|trans }}",
+                "{{ 'name'|trans }}", "{{ 'enabled'|trans }}",
+                "{{ 'dispatch'|trans }}", "{{ 'user.roles'|trans }}", "{{ 'edit'|trans }}"], 
             sortableColumns: ["id", "email", "name", "enabled", "dispatch",
                 "roles"],
             filterableColumns: ["id", "email", "name", "enabled", "dispatch",
