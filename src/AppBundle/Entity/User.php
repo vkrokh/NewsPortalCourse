@@ -61,7 +61,7 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(name="roles", type="array")
      */
-    protected $roles = 'ROLE_USER';
+    protected $roles = ['ROLE_USER'];
 
     /**
      * @ORM\Column(name="password",type="string", length=64)
