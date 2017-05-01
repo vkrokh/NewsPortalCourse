@@ -22,7 +22,7 @@ class UserUtils
     {
         $this->container = $container;
         $doctrine = $this->container->get('doctrine');
-        $this->userRepository = $doctrine->getRepository('AppBundle:User');
+        $this->repositoty = $doctrine->getRepository('AppBundle:User');
     }
 
     public function getUserById(int $userId)

@@ -44,7 +44,8 @@ class RestoreUtils
 
     public function isEmailExist(string $email)
     {
-        $userRepository = $this->getRepository('AppBundle:User');
+        $doctrine = $this->container->get('doctrine');
+        $userRepository = $doctrine->getRepository('AppBundle:User');
         $user = $userRepository->findUserByEmail($email);
         if (isset($user) && $user->isEnabled()) {
             $this->createToken($user);
@@ -55,7 +56,8 @@ class RestoreUtils
 
     public function checkTokenInDataBase(string $token)
     {
-        $tokenRepository = $this->getRepository('AppBundle:Token');
+        $doctrine = $this->container->get('doctrine');
+        $tokenRepository = $doctrine->getRepository('AppBundle:Token');
         $fullyToken = $tokenRepository->getToken($token);
         if ($tokenRepository->checkToken($fullyToken)) {
             return $fullyToken;
@@ -115,7 +117,7 @@ class RestoreUtils
         $this->getRepository('AppBundle:Token')->sendToDataBase($token);
     }
 
-    public function getRepository(ObjectRepository $repository)
+    public function getRepository(string $repository)
     {
         $doctrine = $this->container->get('doctrine');
         return $doctrine->getRepository($repository);
