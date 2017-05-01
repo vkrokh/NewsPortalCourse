@@ -23,7 +23,7 @@ class RecoveryViewType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class,['label' => 'form.user.email',  'error_bubbling' => true]);
+            ->add('email', EmailType::class, ['label' => 'form.user.email', 'error_bubbling' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

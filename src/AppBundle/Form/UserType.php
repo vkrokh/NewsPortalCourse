@@ -16,8 +16,9 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('email', EmailType::class, ['label' => 'form.user.email']) //TODO: fix translations for user ban
-            ->add('name', TextType::class, ['label' => 'name'])
+        $builder->add('email', EmailType::class,
+            ['label' => 'form.user.email', 'error_bubbling' => true,])//TODO: fix translations for user ban
+        ->add('name', TextType::class, ['label' => 'name', 'error_bubbling' => true,])
             ->add('enabled')
             ->add('dispatch')
             ->add('role', ChoiceType::class, [
@@ -27,7 +28,8 @@ class UserType extends AbstractType
                     'ADMIN' => 'ROLE_ADMIN'
                 ],
                 'multiple' => false,
-                'label' => 'user.roles'
+                'label' => 'user.roles',
+                'error_bubbling' => true,
             ]);
     }
 

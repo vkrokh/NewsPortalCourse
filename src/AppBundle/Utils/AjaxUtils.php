@@ -51,7 +51,8 @@ class AjaxUtils
         if ($request->get('sortbyfield')) {
             $categories = $this->sortField($categoryRepository, $request->get('sortbyfield'), $request->get('order'));
         } elseif ($request->get('filterbyfield')) {
-            $categories = $this->filterField($categoryRepository, $request->get('filterbyfield'), $request->get('pattern'));
+            $categories = $this->filterField($categoryRepository, $request->get('filterbyfield'),
+                $request->get('pattern'));
         } else {
             $categories = $categoryRepository->findAll();
         }
@@ -84,7 +85,7 @@ class AjaxUtils
             $count = count($categories);
             $categories = array_slice($categories, ($page - 1) * $perpage, $perpage);
             foreach ($categories as $category) {
-                if(!$category->getParentCategory()){
+                if (!$category->getParentCategory()) {
                     continue;
                 }
                 $response[] = array(

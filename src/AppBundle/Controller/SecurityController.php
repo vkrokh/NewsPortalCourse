@@ -83,7 +83,7 @@ class SecurityController extends Controller
         }
         $activateService = $this->get('app.security.activator');
         if ($activateService->activation($token)) {
-            $this->addFlash('message', $this->get('translator')->trans('successful.activation'))    ;
+            $this->addFlash('message', $this->get('translator')->trans('successful.activation'));
         } else {
             $this->addFlash('message', $this->get('translator')->trans('failed.activation'));
         }

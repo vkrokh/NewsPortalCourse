@@ -30,6 +30,13 @@ class UserUtils
     }
 
 
+    public function deleteUser(int $userId)
+    {
+        $doctrine = $this->container->get('doctrine');
+        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $userRepository->deleteUserFromDataBase($userId);
+    }
+
     public function saveUser(User $user)
     {
         $doctrine = $this->container->get('doctrine');

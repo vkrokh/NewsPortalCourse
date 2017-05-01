@@ -25,6 +25,16 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $user;
     }
 
+    public function deleteUserFromDataBase(int $userId)
+    {
+        $entityManager = $this->getEntityManager();
+        $userRepository = $entityManager->getRepository('AppBundle:User');
+        $user = $userRepository->findOneById($userId);
+        $entityManager->remove($user);
+        $entityManager->flush();
+    }
+
+
     public function getAllDispatchUsers()
     {
         $entityManager = $this->getEntityManager();

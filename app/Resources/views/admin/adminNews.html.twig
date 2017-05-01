@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'news.list'|trans}}{% endblock %}
+{% block title %}{{ 'news.list'|trans }}{% endblock %}
 
  {% block javascripts %}
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -8,9 +8,10 @@
  {% endblock %}
 {% block body %}
     <div class="admin-news">
-        <h1 class="text-center">{{ 'news.list'|trans}}</h1>
-        <button class="btn btn-small btn-inverse" type="button"><a href="{{ path('news_create') }}">{{ 'create.new'|trans}}</a></button>
-                <div id="entities-grid">
+        <h1 class="text-center">{{ 'news.list'|trans }}</h1>
+        <button class="btn btn-small btn-inverse" type="button"><a
+                    href="{{ path('news_create') }}">{{ 'create.new'|trans }}</a></button>
+        <div id="entities-grid">
         </div>
         <div id="pagination-wrapper" class="zui-pager col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">
         </div>
@@ -19,6 +20,7 @@
         $("#entities-grid").ajaxgrid({
             dataUrl: "/ajax/news",
             editUrl: "/{{ app.request.getLocale() }}/news/edit/",
+            columsName: ['Индентификатор', "Название", "Описание", "Дата Создания", "Автор", "Количество просмотров", "Редактировать"], //Translations
             sortableColumns: ["id", "name", "description", "createdAt", "user",
                 "numberOfViews"],
             filterableColumns: ["id", "name", "description", "createdAt", "user",
