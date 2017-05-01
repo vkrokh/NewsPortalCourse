@@ -20,9 +20,9 @@ class UserType extends AbstractType
     {
         $builder->add('email', EmailType::class,
             ['label' => 'form.user.email', 'error_bubbling' => true,])
-        ->add('name', TextType::class, ['label' => 'name', 'error_bubbling' => true,])
-            ->add('enabled',CheckboxType::class, ['label' => 'enabled'])
-            ->add('dispatch',CheckboxType::class, ['label' => 'dispatch'])
+            ->add('name', TextType::class, ['label' => 'name', 'error_bubbling' => true,])
+            ->add('enabled', CheckboxType::class, ['label' => 'enabled', 'required' => false])
+            ->add('dispatch', CheckboxType::class, ['label' => 'dispatch', 'required' => false])
             ->add('role', ChoiceType::class, [
                 'choices' => [
                     'USER' => 'ROLE_USER',

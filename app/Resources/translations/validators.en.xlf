@@ -10,6 +10,10 @@
                 <source>already.use.email</source>
                 <target>This email address is already in use</target>
             </trans-unit>
+            <trans-unit id="already.use.category">
+                <source>already.use.category</source>
+                <target>This category name is already in use</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

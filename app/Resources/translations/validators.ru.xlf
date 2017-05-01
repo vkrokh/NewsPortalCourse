@@ -10,6 +10,10 @@
                 <source>already.use.email</source>
                 <target>Эта почта уже используется</target>
             </trans-unit>
+            <trans-unit id="already.use.category">
+                <source>already.use.category</source>
+                <target>Категория с таким именем уже используется</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

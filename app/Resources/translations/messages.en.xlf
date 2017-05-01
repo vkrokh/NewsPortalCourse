@@ -326,6 +326,10 @@
                 <source>edit</source>
                 <target>Edit</target>
             </trans-unit>
+            <trans-unit id="already.use.news">
+                <source>already.use.news</source>
+                <target>This news name is already in use</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\NewsRepository")
  * @ORM\Table(name="news")
- * @UniqueEntity(fields="name", message="This news name is already in use")
+ * @UniqueEntity(fields="name", message="already.use.news")
  */
 class News
 {

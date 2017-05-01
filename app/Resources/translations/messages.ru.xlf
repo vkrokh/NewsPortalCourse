@@ -265,7 +265,7 @@
             </trans-unit>
             <trans-unit id="create.new">
                 <source>create.new</source>
-                <target>Создать новую</target>
+                <target>Создать</target>
             </trans-unit>
             <trans-unit id="news.list">
                 <source>news.list</source>
@@ -314,6 +314,10 @@
             <trans-unit id="edit">
                 <source>edit</source>
                 <target>Редактировать</target>
+            </trans-unit>
+            <trans-unit id="already.use.news">
+                <source>already.use.news</source>
+                <target>Новость с таким именем уже существует</target>
             </trans-unit>
         </body>
     </file>
