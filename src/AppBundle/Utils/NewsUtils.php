@@ -15,40 +15,34 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class NewsUtils
 {
     private $container;
-
+    private $repository;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $doctrine = $this->container->get('doctrine');
+        $this->repository = $doctrine->getRepository('AppBundle:News');
     }
 
     public function saveNews(News $news)
     {
-        $doctrine = $this->container->get('doctrine');
-        $newsRepository = $doctrine->getRepository('AppBundle:News');
-        $newsRepository->sendToDataBase($news);
+        $this->repository->sendToDataBase($news);
     }
 
     public function deleteNews(int $id)
     {
-        $doctrine = $this->container->get('doctrine');
-        $newsRepository = $doctrine->getRepository('AppBundle:News');
-        $newsRepository->deleteNewsFromDataBase($id);
+        $this->repository->deleteNewsFromDataBase($id);
     }
 
     public function showNews(int $id)
     {
-        $doctrine = $this->container->get('doctrine');
-        $newsRepository = $doctrine->getRepository('AppBundle:News');
-        $news = $newsRepository->getNews($id);
+        $news = $this->repository->getNews($id);
         return $news;
     }
 
     public function getAllNews(string $category)
     {
-        $doctrine = $this->container->get('doctrine');
-        $newsRepository = $doctrine->getRepository('AppBundle:News');
-        return $newsRepository->getAllNews($category);
+        return $this->repository->getAllNews($category);
     }
 
 }

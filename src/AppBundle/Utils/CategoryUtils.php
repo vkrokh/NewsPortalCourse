@@ -15,40 +15,35 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class CategoryUtils
 {
     private $container;
+    private $repository;
 
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $doctrine = $this->container->get('doctrine');
+        $this->repository = $doctrine->getRepository('AppBundle:Category');
     }
 
     public function deleteCategory(int $categoryId)
     {
-        $doctrine = $this->container->get('doctrine');
-        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
-        $categoryRepository->deleteFromDataBase($categoryId);
+        $this->repository->deleteFromDataBase($categoryId);
     }
 
 
     public function addCategory(Category $category)
     {
-        $doctrine = $this->container->get('doctrine');
-        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
-        $categoryRepository->sendToDataBase($category);
+        $this->repository->sendToDataBase($category);
     }
 
     public function showCategory(int $category, string $sortField, string $sortType)
     {
-        $doctrine = $this->container->get('doctrine');
-        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
-        return $categoryRepository->getCategoryNews($category, $sortField, $sortType);
+        return $this->repository->getCategoryNews($category, $sortField, $sortType);
     }
 
     public function getCategory(int $id)
     {
-        $doctrine = $this->container->get('doctrine');
-        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
-        return $categoryRepository->getCategory($id);
+        return $this->repository->getCategory($id);
     }
 
 

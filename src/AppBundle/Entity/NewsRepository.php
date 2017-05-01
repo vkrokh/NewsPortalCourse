@@ -24,13 +24,12 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
 
     public function getSimilarNewsFromDataBase(int $id)
     {
-
         $entityManager = $this->getEntityManager();
         $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
         return $news;
     }
 
-    public function getLatestFiveNews()
+    public function getLatestNews()
     {
         $entityManager = $this->getEntityManager();
         $sql = 'SELECT news.name,news.description, news.id  FROM news_portal.news ORDER BY news.created_at DESC LIMIT 5';

@@ -11,6 +11,7 @@ namespace AppBundle\Utils;
 
 use AppBundle\Entity\Token;
 use AppBundle\Entity\User;
+use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -31,7 +32,8 @@ class RestoreUtils
         \Swift_Mailer $mailer,
         TwigEngine $render,
         Router $router
-    ) {
+    )
+    {
         $this->container = $container;
         $this->mailer = $mailer;
         $this->tokenGenerator = $tokenGenerator;
@@ -42,8 +44,7 @@ class RestoreUtils
 
     public function isEmailExist(string $email)
     {
-        $doctrine = $this->container->get('doctrine');
-        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $user = $userRepository->findUserByEmail($email);
         if (isset($user) && $user->isEnabled()) {
             $this->createToken($user);
@@ -54,8 +55,7 @@ class RestoreUtils
 
     public function checkTokenInDataBase(string $token)
     {
-        $doctrine = $this->container->get('doctrine');
-        $tokenRepository = $doctrine->getRepository('AppBundle:Token');
+        $tokenRepository = $this->getRepository('AppBundle:Token');
         $fullyToken = $tokenRepository->getToken($token);
         if ($tokenRepository->checkToken($fullyToken)) {
             return $fullyToken;
@@ -112,9 +112,13 @@ class RestoreUtils
 
     private function sendTokenToDataBase(Token $token)
     {
+        $this->getRepository('AppBundle:Token')->sendToDataBase($token);
+    }
+
+    public function getRepository(ObjectRepository $repository)
+    {
         $doctrine = $this->container->get('doctrine');
-        $tokenRepository = $doctrine->getRepository('AppBundle:Token');
-        $tokenRepository->sendToDataBase($token);
+        return $doctrine->getRepository($repository);
     }
 
 }

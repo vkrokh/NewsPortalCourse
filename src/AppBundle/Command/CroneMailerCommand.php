@@ -29,7 +29,7 @@ class CroneMailerCommand extends ContainerAwareCommand
         $mailer = $this->getContainer()->get('mailer');
         $userRepository = $doctrine->getRepository('AppBundle:User');
         $newsRepository = $doctrine->getRepository('AppBundle:News');
-        $latestNews = $newsRepository->getLatestFiveNews();
+        $latestNews = $newsRepository->getLatestNews();
         $users = $userRepository->getAllDispatchUsers();
         foreach ($users as $user) {
             $message = \Swift_Message::newInstance()
