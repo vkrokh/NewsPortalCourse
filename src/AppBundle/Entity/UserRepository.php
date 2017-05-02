@@ -19,8 +19,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 
     public function findUserByEmail(string $email)
     {
-        $entityManager = $this->getEntityManager();
-        $userRepository = $entityManager->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $user = $userRepository->findOneByEmail($email);
         return $user;
     }
@@ -28,17 +27,22 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
     public function deleteUserFromDataBase(int $userId)
     {
         $entityManager = $this->getEntityManager();
-        $userRepository = $entityManager->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $user = $userRepository->findOneById($userId);
         $entityManager->remove($user);
         $entityManager->flush();
     }
 
+    public function getRepository(string $repository)
+    {
+        $entityManager = $this->getEntityManager();
+        return $entityManager->getRepository($repository);
+    }
+
 
     public function getAllDispatchUsers()
     {
-        $entityManager = $this->getEntityManager();
-        $userRepository = $entityManager->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $users = $userRepository->findBy(['dispatch' => true, 'enabled' => 1]);
         return $users;
     }

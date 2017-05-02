@@ -20,8 +20,8 @@
         $("#entities-grid").ajaxgrid({
             dataUrl: "/ajax/category",
             editUrl: "/{{ app.request.getLocale() }}/category/edit/",
-            columsName: ["{{ 'id'|trans }}", "{{ 'category.name'|trans }}",
-                "{{ 'parent.category'|trans }}", "{{ 'edit'|trans }}"], //Translations
+            columnsName: ["{{ 'id'|trans }}", "{{ 'category.name'|trans }}",
+                "{{ 'parent.category'|trans }}", "{{ 'edit'|trans }}"],
             sortableColumns: ["id", "name", "parentCategory"],
             filterableColumns: ["id", "name", "parentCategory"],
             rowsPerPage: 5,

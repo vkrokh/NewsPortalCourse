@@ -26,10 +26,9 @@ class AjaxUtils
 
     public function getJsonResponseNews(Request $request)
     {
-        $doctrine = $this->container->get('doctrine');
         $page = $request->get('page');
         $perpage = $request->get('perpage');
-        $newsRepository = $doctrine->getRepository('AppBundle:News');
+        $newsRepository = $this->getRepository('AppBundle:News');
         if ($request->get('sortbyfield')) {
             $news = $this->sortField($newsRepository, $request->get('sortbyfield'), $request->get('order'));
         } elseif ($request->get('filterbyfield')) {
@@ -44,10 +43,9 @@ class AjaxUtils
 
     public function getJsonResponseCategory(Request $request)
     {
-        $doctrine = $this->container->get('doctrine');
         $page = $request->get('page');
         $perpage = $request->get('perpage');
-        $categoryRepository = $doctrine->getRepository('AppBundle:Category');
+        $categoryRepository = $this->getRepository('AppBundle:Category');
         if ($request->get('sortbyfield')) {
             $categories = $this->sortField($categoryRepository, $request->get('sortbyfield'), $request->get('order'));
         } elseif ($request->get('filterbyfield')) {
@@ -62,10 +60,9 @@ class AjaxUtils
 
     public function getJsonResponseUsers(Request $request)
     {
-        $doctrine = $this->container->get('doctrine');
         $page = $request->get('page');
         $perpage = $request->get('perpage');
-        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         if ($request->get('sortbyfield')) {
             $users = $this->sortField($userRepository, $request->get('sortbyfield'), $request->get('order'));
         } elseif ($request->get('filterbyfield')) {
@@ -147,6 +144,8 @@ class AjaxUtils
     }
 
 
+
+
     private function filterField($repository, string $filterField, string $pattern)
     {
         if ($filterField == 'createdAt') {
@@ -163,6 +162,12 @@ class AjaxUtils
                 ->setParameter('pattern', '%' . $pattern . '%')
                 ->getQuery()->getResult();
         }
+    }
+
+    public function getRepository(string $repository)
+    {
+        $doctrine = $this->container->get('doctrine');
+        return $doctrine->getRepository($repository);
     }
 
 }

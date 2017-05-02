@@ -11,7 +11,7 @@ $.fn.ajaxgrid = function (options) {
     var activePaginator;
     var activePaginatorNumber = 1;
     var elementsInDatabase;
-    var columsName = options.columsName;
+    var columnsName = options.columnsName;
     var paginatorElementsOnPage = options.rowsPerPage;
     var editUrl = options.editUrl;
     var key = options.key;
@@ -59,7 +59,7 @@ $.fn.ajaxgrid = function (options) {
             }
 
             tableHeader.setAttribute('field', options.sortableColumns[i]);
-            tableHeader.innerHTML += columsName[i];
+            tableHeader.innerHTML += columnsName[i];
             tableRow.appendChild(tableHeader);
 
 
@@ -83,7 +83,7 @@ $.fn.ajaxgrid = function (options) {
         li.innerHTML = '15';
         dropdown.appendChild(li);
         tableHeader.appendChild(dropdown);
-        tableHeader.innerHTML += columsName[columsName.length - 1];
+        tableHeader.innerHTML += columnsName[columnsName.length - 1];
         tableRow.appendChild(tableHeader);
         tableHead.appendChild(tableRow);
         return tableHead;
@@ -102,7 +102,7 @@ $.fn.ajaxgrid = function (options) {
         var editLink = document.createElement('a');
         editLink.setAttribute('href', editUrl + element.id);
         editLink.classList.add('btn', 'btn-default');
-        editLink.innerHTML = columsName[columsName.length - 1];
+        editLink.innerHTML = columnsName[columnsName.length - 1];
         tableItem.appendChild(editLink);
         tableRow.appendChild(tableItem);
         return tableRow;

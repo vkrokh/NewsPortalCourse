@@ -3,7 +3,9 @@
 
 {% for oneNews in news %}
     <div class="news">
-        <h4><a href="{{ absolute_url( path('news', {'_locale' : 'en' ,'newsId': oneNews.id}) ) }}">{{ oneNews.name }}</a></h4>
+        <h4>
+            <a href="{{ site }}/en/news/{{ oneNews.id }}">{{ oneNews.name }}</a>
+        </h4>
 
         <p>{{ oneNews.description|descriptionFilter() }}</p>
     </div>

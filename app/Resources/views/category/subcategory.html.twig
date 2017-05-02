@@ -33,9 +33,11 @@
         <h5>{{ 'sort'|trans }}</h5>
         <ul class="post-category-list">
             <li>
-                    <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'date' }) }}">{{ 'date.down'|trans }}</a></li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'date' }) }}">{{ 'date.down'|trans }}</a>
+            </li>
             <li>
-                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'date' }) }}">{{ 'date.up'|trans }}</a></li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'date' }) }}">{{ 'date.up'|trans }}</a>
+            </li>
             <li>
                 <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'views' }) }}">{{ 'views.down'|trans }}</a>
             </li>

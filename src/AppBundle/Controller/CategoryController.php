@@ -51,7 +51,7 @@ class CategoryController extends Controller
     /**
      * @Route("/delete/{categoryId}/", name="category_delete")
      */
-    public function deleteCategory(Request $request, int $categoryId)
+    public function deleteCategory(int $categoryId)
     {
         $categoryService = $this->get('app.security.showcategory');
         $categoryService->deleteCategory($categoryId);

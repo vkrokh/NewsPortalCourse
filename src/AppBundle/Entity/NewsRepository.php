@@ -32,10 +32,12 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
     public function getLatestNews()
     {
         $entityManager = $this->getEntityManager();
-        $sql = 'SELECT news.name,news.description, news.id  FROM news_portal.news ORDER BY news.created_at DESC LIMIT 5';
-        $stmt = $entityManager->getConnection()->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $entityManager->getRepository('AppBundle:News')
+            ->createQueryBuilder('p')
+            ->orderBy('p.createdAt')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();;
         return $result;
     }
 

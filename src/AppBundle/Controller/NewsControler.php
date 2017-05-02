@@ -102,8 +102,7 @@ class NewsControler extends Controller
             foreach ($news->getParentCategories() as $category) {
                 $this->setAllParent($category, $news);
             }
-
-            $this->container->get('app.security.shownews')->saveNews($news);
+            $showNewsService->saveNews($news);
             return $this->redirect($this->generateUrl('admin_news'));
         }
         $errors = (string)$form->getErrors(true);

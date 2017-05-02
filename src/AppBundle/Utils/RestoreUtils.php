@@ -32,8 +32,7 @@ class RestoreUtils
         \Swift_Mailer $mailer,
         TwigEngine $render,
         Router $router
-    )
-    {
+    ) {
         $this->container = $container;
         $this->mailer = $mailer;
         $this->tokenGenerator = $tokenGenerator;
@@ -44,8 +43,7 @@ class RestoreUtils
 
     public function isEmailExist(string $email)
     {
-        $doctrine = $this->container->get('doctrine');
-        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $user = $userRepository->findUserByEmail($email);
         if (isset($user) && $user->isEnabled()) {
             $this->createToken($user);
@@ -56,8 +54,7 @@ class RestoreUtils
 
     public function checkTokenInDataBase(string $token)
     {
-        $doctrine = $this->container->get('doctrine');
-        $tokenRepository = $doctrine->getRepository('AppBundle:Token');
+        $tokenRepository = $this->getRepository('AppBundle:Token');
         $fullyToken = $tokenRepository->getToken($token);
         if ($tokenRepository->checkToken($fullyToken)) {
             return $fullyToken;
@@ -71,10 +68,9 @@ class RestoreUtils
         $user = $token->getUser();
         $password = $encoder->encodePassword($user, $plainPassword);
         $user->setPassword($password);
-        $doctrine = $this->container->get('doctrine');
-        $tokenRepository = $doctrine->getRepository('AppBundle:Token');
+        $tokenRepository = $this->getRepository('AppBundle:Token');
         $tokenRepository->removeToken($token);
-        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $userRepository->sendToDataBase($user);
 
     }
