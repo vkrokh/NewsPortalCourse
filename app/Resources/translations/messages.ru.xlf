@@ -146,7 +146,6 @@
                 <source>ROLE_ADMIN</source>
                 <target>Администратор</target>
             </trans-unit>
-
             <trans-unit id="sort">
                 <source>sort</source>
                 <target>Сортировать по</target>
@@ -350,6 +349,10 @@
             <trans-unit id="no.page">
                 <source>no.page</source>
                 <target>Страница не найдена </target>
+            </trans-unit>
+            <trans-unit id="or">
+                <source>or</source>
+                <target>или</target>
             </trans-unit>
         </body>
     </file>

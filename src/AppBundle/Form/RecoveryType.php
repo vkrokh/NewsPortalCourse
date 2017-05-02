@@ -27,9 +27,9 @@ class RecoveryType extends AbstractType
                 'plainPassword', RepeatedType::class,
                 [
                     'type' => PasswordType::class,
-                    'first_options' => ['label' => 'Password'],
-                    'second_options' => ['label' => 'Confirm Password'],
-                    'invalid_message' => 'password.not.match.',
+                    'first_options' => ['label' => 'form.user.password'],
+                    'second_options' => ['label' => 'form.user.cpassword'],
+                    'invalid_message' => 'password.not.match',
                     'error_bubbling' => true
                 ]
             );

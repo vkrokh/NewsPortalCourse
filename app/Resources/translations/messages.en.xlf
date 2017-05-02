@@ -46,7 +46,6 @@
                 <source>form.user.cpassword</source>
                 <target>Confirm Password</target>
             </trans-unit>
-
             <trans-unit id="form.user.email">
                 <source>form.user.email</source>
                 <target>Email</target>
@@ -123,7 +122,6 @@
                 <source>users</source>
                 <target>Users</target>
             </trans-unit>
-
             <trans-unit id="user.username">
                 <source>user.username</source>
                 <target>Username</target>
@@ -136,12 +134,10 @@
                 <source>user.roles</source>
                 <target>Role</target>
             </trans-unit>
-
             <trans-unit id="category.name">
                 <source>category.name</source>
                 <target>Category</target>
             </trans-unit>
-
             <trans-unit id="ROLE_USER">
                 <source>ROLE_USER</source>
                 <target>User</target>
@@ -350,6 +346,10 @@
                 <source>denied</source>
                 <target>Permission denied </target>
             </trans-unit>
+            <trans-unit id="password.not.match">
+                <source>password.not.match</source>
+                <target>Password nor match</target>
+            </trans-unit>
             <trans-unit id="return.homepage">
                 <source>return.homepage</source>
                 <target>Return to homepage</target>
@@ -361,6 +361,10 @@
             <trans-unit id="no.page">
                 <source>no.page</source>
                 <target>Page not found </target>
+            </trans-unit>
+            <trans-unit id="or">
+                <source>or</source>
+                <target>or</target>
             </trans-unit>
         </body>
     </file>
