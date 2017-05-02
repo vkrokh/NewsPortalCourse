@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    {{ 'no.page'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'no.page'|trans }} (404)</h1>
+    <p>
+        {{ 'no.page.text'|trans }}<a href="{{ path('homepage') }}">{{ 'return.homepage'|trans }}</a>
+    </p>
+{% endblock %}

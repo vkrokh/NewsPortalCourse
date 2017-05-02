@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ 'recovery'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container pagination-centered form-group">
+        {% for flashMessage in app.session.flashbag.get('message') %}
+            <div class="alert alert-danger">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        {% if errors %}
+            <div class="alert alert-danger">{{ errors }}</div>
+        {% endif %}
+        {{ form_start(form) }}
+
+        {{ form_row(form.email, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        <button type="submit" class="form-control btn-success">{{ 'send.email'|trans }}</button>
+        {{ form_end(form) }}
+        <div class="container">
+            <a href="{{ path('user_login') }}">
+                {{ 'signin'|trans }}
+            </a>
+            {{ 'or'|trans }}
+            <a href="{{ path('user_register') }}">
+                {{ 'signup'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

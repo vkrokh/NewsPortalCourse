@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/custom-styles.css') }}">
+
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    {% block javascripts %}
+
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="container main-container">
+
+    <div class="row header">
+
+        <div class="span5 logo">
+            <a href="{{ path('category', {'categoryId': '1'}) }}"><h5>News Portal</h5></a>
+        </div>
+
+        <div class="span7 navigation">
+            <div class="navbar">
+
+                {% if app.user %}
+
+                    {{ knp_menu_render('AppBundle:Menu:mainMenu') }}
+                    {% if is_granted('ROLE_CONTENT_MANAGER') %}
+                        <ul class="nav">
+                            <li class="dropdown">
+                                <a>{{ 'admin'|trans }}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('admin_category') }}">{{ 'categories'|trans }}</a></li>
+                                    <li><a href="{{ path('admin_news') }}">{{ 'news'|trans }}</a></li>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a href="{{ path('admin_users') }}">{{ 'users'|trans }}</a></li>
+                                    {% endif %}
+
+                                </ul>
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    <div class="container main-container">
+        <div class="row">
+            <div class="span8 blog">
+                {% block body %}
+                {% endblock %}
+            </div>
+            {% if app.user %}
+                <div class="span4 sidebar">
+                    {% block search %}
+                        <section>
+                            <div class="input-append">
+                                <form action="{{ path('search_page') }}">
+                                    <input id="appendedInputButton" size="16" type="text"
+                                           placeholder="{{ 'search'|trans }} "
+                                           name="query">
+                                    <button class="btn btn-inverse" type="submit">{{ 'search'|trans }}</button>
+                                </form>
+                            </div>
+                        </section>
+                    {% endblock %}
+                    {% block rightMenu %}
+                    {% endblock %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% block footer %}
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div id="footer-resources" class="col-md-6">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+</div>
+</body>
+</html>

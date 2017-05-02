@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'register'|trans }}{% endblock %}
+
+{% block body %}
+
+    <div class="container pagination-centered form-group">
+        {% if errors %}
+            <div class="alert alert-danger">{{ errors }}</div>
+        {% endif %}
+        {{ form_start(form) }}
+
+        {{ form_row(form.name, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        {{ form_row(form.email, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        <button type="submit" class="form-control btn-success">{{ 'signup'|trans }}</button>
+        {{ form_end(form) }}
+        <div class="container">
+            <a href="{{ path('user_login') }}">
+                {{ 'signin'|trans }}
+            </a>
+            {{ 'or'|trans }}
+            <a href="{{ path('user_restore_view') }}">
+                {{ 'restore.email'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

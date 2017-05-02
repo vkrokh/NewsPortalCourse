@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block body %}
+
+    {% for qnews in  news %}
+        <article>
+            <div class="post-summary">
+                <h3 class="title-bg">{{ qnews['name'] }}</h3>
+                <p>
+                    {{ (qnews['description'])|descriptionFilter() }}
+
+                </p>
+                <div class="post-summary-footer">
+                    <button class="btn btn-inverse" type="button"><a
+                                href="{{ path('news', {'newsId': qnews['id']}) }}">{{ 'post.more'|trans }}</a></button>
+                    <ul class="post-data">
+                        <li><i class="icon-eye-open"></i>{{ qnews['views'] }}</li>
+                        <li><i class="icon-calendar"></i> {{ qnews['created_at'] }}</li>
+                        <li><i class="icon-user"></i>{{ qnews['user_name'] }}</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(news) }}
+    </div>
+{% endblock %}
+
+{% block rightMenu %}
+    <div class="sort-btns">
+        <h5>{{ 'sort'|trans }}</h5>
+        <ul class="post-category-list">
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'date' }) }}">{{ 'date.down'|trans }}</a>
+            </li>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'date' }) }}">{{ 'date.up'|trans }}</a>
+            </li>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'ASC' , 'sortField' : 'views' }) }}">{{ 'views.down'|trans }}</a>
+            </li>
+            <li>
+                <a href="{{ path('category', {'categoryId': category.id , 'sortType' : 'DESC' , 'sortField' : 'views' }) }}">{{ 'views.up'|trans }}</a>
+            </li>
+        </ul>
+
+
+    </div>
+    <h5 class="title-bg">{{ 'subcategories'|trans }}</h5>
+    <ul class="post-category-list">
+        {% for qcategory in category.getSubCategory %}
+            <li><a href="{{ path('category', {'categoryId': qcategory.id }) }}"><i
+                            class="icon-plus-sign"></i>{{ qcategory.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
