@@ -2,12 +2,12 @@
 
 
 {% block title %}
-    You're not welcome here.
+    {{ 'denied'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>Permission denied (403)</h1>
+    <h1>{{ 'denied'|trans }}(403)</h1>
     <p>
-        You're not welcome here. <a href="{{ path('homepage') }}">return to the homepage</a>.
+        {{ 'denied.text'|trans }}. <a href="{{ path('homepage') }}">{{ 'return.homepage'|trans }}</a>.
     </p>
 {% endblock %}

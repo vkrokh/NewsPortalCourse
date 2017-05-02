@@ -201,7 +201,7 @@
             </trans-unit>
             <trans-unit id="mail.check">
                 <source>mail.check</source>
-                <target>Проверьте свою почту для восстановления пароля</target>
+                <target>Проверьте свою почту для активации аккаунта</target>
             </trans-unit>
             <trans-unit id="account.lock">
                 <source>account.lock</source>
@@ -221,7 +221,7 @@
             </trans-unit>
             <trans-unit id="verify">
                 <source>verify</source>
-                <target>Пожалуйста, подтверидите совю почту для доступа к своему аккаунту  </target>
+                <target>Пожалуйста, подтверидите свою почту для доступа к своему аккаунту  </target>
             </trans-unit>
             <trans-unit id="verify.link">
                 <source>verify.link</source>
@@ -318,6 +318,38 @@
             <trans-unit id="already.use.news">
                 <source>already.use.news</source>
                 <target>Новость с таким именем уже существует</target>
+            </trans-unit>
+            <trans-unit id="oops">
+                <source>oops</source>
+                <target>Упс!</target>
+            </trans-unit>
+            <trans-unit id="smg.wrong">
+                <source>smg.wrong</source>
+                <target>Упс, что-то пошло не так!</target>
+            </trans-unit>
+            <trans-unit id="go.away">
+                <source>go.away</source>
+                <target>Убирайся прочь и никогда не возвращайся</target>
+            </trans-unit>
+            <trans-unit id="denied.text">
+                <source>denied.text</source>
+                <target>У нас недостаточно прав для доступа к этой странице</target>
+            </trans-unit>
+            <trans-unit id="denied">
+                <source>denied</source>
+                <target>Отказано в доступе </target>
+            </trans-unit>
+            <trans-unit id="return.homepage">
+                <source>return.homepage</source>
+                <target>Вернуться на домашнюю страницу</target>
+            </trans-unit>
+            <trans-unit id="no.page.text">
+                <source>no.page.text</source>
+                <target>Запрашиваемая страница не найдена. </target>
+            </trans-unit>
+            <trans-unit id="no.page">
+                <source>no.page</source>
+                <target>Страница не найдена </target>
             </trans-unit>
         </body>
     </file>
