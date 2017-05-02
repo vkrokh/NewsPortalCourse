@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ 'profile'|trans }}{% endblock %}
+
+{% block body %}
+    <h1> {{ user.name }}</h1>
+    <h3>{{ 'user.roles'|trans }} : {{ user.roles[0]|trans }}</h3>
+    <h3>{{ 'user.email'|trans }} : {{ user.email }}</h3>
+    {% if user.dispatch %}
+        <h3>{{ 'daily'|trans }} : <a href="{{ url('user_dispatch') }}">{{ 'unsubscribe'|trans }}</a></h3>
+    {% else %}
+        <h3>{{ 'daily'|trans }} : <a href="{{ url('user_dispatch') }}"> {{ 'subscribe'|trans }}</a></h3>
+    {% endif %}
+    {% if app.request.getLocale()=='en' %}
+        <h3>{{ 'language'|trans }} : <a href="{{ path('user_profile', {'_locale' : 'ru'} ) }}">
+                <ae>{{ 'language.en'|trans }}</ae>
+            </a></h3>
+    {% else %}
+        <h3>{{ 'language'|trans }} : <a
+                    href="{{ path('user_profile', {'_locale' : 'en'} ) }}"> {{ 'language.ru'|trans }}</a></h3>
+    {% endif %}
+{% endblock %}
+
+{% block rigthMenu %}
+{% endblock %}
+{% block search %}
+{% endblock %}

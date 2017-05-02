@@ -1,0 +1,14 @@
+<h1>Daily mail dispatch</h1>
+
+
+{% for oneNews in news %}
+    <div class="news">
+        <h4>
+            <a href="{{ site }}/en/news/{{ oneNews.id }}">{{ oneNews.name }}</a>
+        </h4>
+
+        <p>{{ oneNews.description|descriptionFilter() }}</p>
+    </div>
+{% endfor %}
+
+<h1>You can unsubscribe from daily dispatch in your account.</h1>

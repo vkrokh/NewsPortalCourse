@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container pagination-centered form-group">
+        {% if errors %}
+            <div class="alert alert-danger">{{ errors }}</div>
+        {% endif %}
+        {{ form_start(form) }}
+
+        {{ form_row(form.email, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+        {{ form_row(form.name, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+        <div class="block">
+            {{ form_row(form.enabled, {'attr': {'class': 'form-control'},
+                'label_attr': {'class': 'control-label'}
+            }) }}
+
+            {{ form_row(form.dispatch, {'attr': {'class': 'form-control'},
+                'label_attr': {'class': 'control-label'}
+            }) }}
+        </div>
+
+
+        {{ form_row(form.role, {'attr': {'class': 'form-control'},
+            'label_attr': {'class': 'control-label'}
+        }) }}
+
+        <button type="submit" class="form-control btn-success">{{ 'save'|trans }}</button>
+        {% if id %}
+            <button class="Form-control btn-danger" type="button"><a
+                        href="{{ path('user_delete', {'userId': id} ) }}" style="color: white;">{{ 'delete'|trans }}</a>
+            </button>
+        {% endif %}
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+
+{% block search %}
+{% endblock %}
