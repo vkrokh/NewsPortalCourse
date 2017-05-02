@@ -17,9 +17,6 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
         $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
         $views = $news->getNumberOfViews();
         $news->setNumberOfViews(++$views);
-        /* $similar = $news->getSimilarNewsId();
-         array_push($similar,'19');
-         $news->setSimilarNewsId($similar);*/
         $entityManager->persist($news);
         $entityManager->flush();
         return $news;
@@ -27,19 +24,20 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
 
     public function getSimilarNewsFromDataBase(int $id)
     {
-
         $entityManager = $this->getEntityManager();
         $news = $entityManager->getRepository('AppBundle:News')->findOneById($id);
         return $news;
     }
 
-    public function getLatestFiveNews()
+    public function getLatestNews()
     {
         $entityManager = $this->getEntityManager();
-        $sql = 'SELECT news.name,news.description, news.id  FROM news_portal.news ORDER BY news.created_at DESC LIMIT 5';
-        $stmt = $entityManager->getConnection()->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $entityManager->getRepository('AppBundle:News')
+            ->createQueryBuilder('p')
+            ->orderBy('p.createdAt')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();;
         return $result;
     }
 

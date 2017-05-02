@@ -23,17 +23,21 @@ class ActivateUtils
 
     public function dispatching(User $user)
     {
-        $doctrine = $this->container->get('doctrine');
-        $userRepository = $doctrine->getRepository('AppBundle:User');
+        $userRepository = $this->getRepository('AppBundle:User');
         $user->setDispatch(!($user->getDispatch()));
         $userRepository->sendToDataBase($user);
     }
 
     public function activation(string $token)
     {
-        $doctrine = $this->container->get('doctrine');
-        $tokenRepository = $doctrine->getRepository('AppBundle:Token');
+        $tokenRepository = $this->getRepository('AppBundle:Token');
         return $tokenRepository->activateUserByToken($token);
+    }
+
+    public function getRepository(string $repository)
+    {
+        $doctrine = $this->container->get('doctrine');
+        return $doctrine->getRepository($repository);
     }
 
 

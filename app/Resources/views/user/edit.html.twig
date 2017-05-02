@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit{% endblock %}
+{% block title %}{{ 'edit'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container pagination-centered form-group">
@@ -27,7 +27,7 @@
             'label_attr': {'class': 'control-label'}
         }) }}
 
-        <button type="submit" class="form-control btn-success">Edit</button>
+        <button type="submit" class="form-control btn-success">{{ 'edit'|trans }}</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

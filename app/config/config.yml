@@ -6,6 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    app_locales: en|ru
     locale: en
 
 fos_elastica:
@@ -27,7 +28,8 @@ fos_elastica:
                         listener: ~
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator:
+        { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.root_dir%/config/routing.yml'

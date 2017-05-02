@@ -25,7 +25,6 @@
             <a href="{{ path('category', {'categoryId': '1'}) }}"><h5>News Portal</h5></a>
         </div>
 
-
         <div class="span7 navigation">
             <div class="navbar">
 
@@ -35,12 +34,12 @@
                     {% if is_granted('ROLE_CONTENT_MANAGER') %}
                         <ul class="nav">
                             <li class="dropdown">
-                                <a>Admin</a>
+                                <a>{{ 'admin'|trans }}</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ path('admin_category') }}">Category</a></li>
-                                    <li><a href="{{ path('admin_news') }}">News</a></li>
+                                    <li><a href="{{ path('admin_category') }}">{{ 'categories'|trans }}</a></li>
+                                    <li><a href="{{ path('admin_news') }}">{{ 'news'|trans }}</a></li>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <li><a href="{{ path('admin_users') }}">User</a></li>
+                                        <li><a href="{{ path('admin_users') }}">{{ 'users'|trans }}</a></li>
                                     {% endif %}
 
                                 </ul>
@@ -52,10 +51,7 @@
             </div>
         </div>
     </div>
-    {% block admin %}
-    {% endblock %}
     <div class="container main-container">
-
         <div class="row">
             <div class="span8 blog">
                 {% block body %}
@@ -67,9 +63,10 @@
                         <section>
                             <div class="input-append">
                                 <form action="{{ path('search_page') }}">
-                                    <input id="appendedInputButton" size="16" type="text" placeholder="Search"
+                                    <input id="appendedInputButton" size="16" type="text"
+                                           placeholder="{{ 'search'|trans }} "
                                            name="query">
-                                    <button class="btn btn-inverse" type="submit">Search</button>
+                                    <button class="btn btn-inverse" type="submit">{{ 'search'|trans }}</button>
                                 </form>
                             </div>
                         </section>

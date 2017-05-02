@@ -19,6 +19,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
+
+/**
+ * @Route("/{_locale}")
+ */
 class SecurityController extends Controller
 {
 
@@ -56,7 +60,7 @@ class SecurityController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $registerService = $this->get('app.security.register');
             $registerService->registerUser($user);
-            $this->addFlash('message', 'Check your email to activate account');
+            $this->addFlash('message', $this->get('translator')->trans('mail.check'));
             return $this->redirectToRoute('user_login');
         }
         $errors = (string)$form->getErrors(true);
@@ -79,9 +83,9 @@ class SecurityController extends Controller
         }
         $activateService = $this->get('app.security.activator');
         if ($activateService->activation($token)) {
-            $this->addFlash('message', 'Successful activation');
+            $this->addFlash('message', $this->get('translator')->trans('successful.activation'));
         } else {
-            $this->addFlash('message', 'Activation failed');
+            $this->addFlash('message', $this->get('translator')->trans('failed.activation'));
         }
         return $this->redirect($this->generateUrl('user_login'));
     }
@@ -98,6 +102,7 @@ class SecurityController extends Controller
      */
     public function recoveryViewAction(Request $request)
     {
+
         if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('category');
         }
@@ -107,10 +112,10 @@ class SecurityController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $restoreService = $this->get('app.security.restore');
             if ($restoreService->isEmailExist($user->getEmail())) {
-                $this->addFlash('message', 'Check your email to restore password');
+                $this->addFlash('message', $this->get('translator')->trans('mail.check'));
                 return $this->redirectToRoute('user_login');
             }
-            $this->addFlash('message', 'Account locked or does not exist');
+            $this->addFlash('message', $this->get('translator')->trans('account.lock'));
             return $this->render(
                 'user/restoreEmailView.html.twig',
                 array(
@@ -147,7 +152,7 @@ class SecurityController extends Controller
                     $user->getPlainPassword(),
                     $fullyToken
                 );
-                $this->addFlash('message', 'New password created');
+                $this->addFlash('message', $this->get('translator')->trans('new.password'));
                 return $this->redirectToRoute('user_login');
             }
             $errors = (string)$form->getErrors(true);
@@ -159,7 +164,7 @@ class SecurityController extends Controller
                 )
             );
         }
-        $this->addFlash('message', 'Token too old');
+        $this->addFlash('message', $this->get('translator')->trans('Token too old'));
         return $this->redirectToRoute('user_login');
     }
 

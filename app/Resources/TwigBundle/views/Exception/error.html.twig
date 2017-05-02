@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    {{ 'oops'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'go.away'|trans }}</h1>
+    <p>
+        <a href="{{ path('homepage') }}"> {{ 'go.away'|trans }}</a>
+    </p>
+{% endblock %}

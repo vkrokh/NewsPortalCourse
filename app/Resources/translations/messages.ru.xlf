@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="news">
+                <source>news</source>
+                <target>Новости</target>
+            </trans-unit>
+            <trans-unit id="search">
+                <source>search</source>
+                <target>Поиск</target>
+            </trans-unit>
+            <trans-unit id="change">
+                <source>change</source>
+                <target>Изменить</target>
+            </trans-unit>
+            <trans-unit id="name">
+                <source>name</source>
+                <target>Имя</target>
+            </trans-unit>
+            <trans-unit id="parent.category">
+                <source>parent.category</source>
+                <target>Родительская категория</target>
+            </trans-unit>
+            <trans-unit id="profile">
+                <source>profile</source>
+                <target>Профиль</target>
+            </trans-unit>
+            <trans-unit id="logout">
+                <source>logout</source>
+                <target>Выйти</target>
+            </trans-unit>
+            <trans-unit id="post.more">
+                <source>post.more</source>
+                <target>Читать далее</target>
+            </trans-unit>
+            <trans-unit id="login">
+                <source>login</source>
+                <target>Войти</target>
+            </trans-unit>
+            <trans-unit id="rsignup">
+                <source>rsignup</source>
+                <target>Регистрация</target>
+            </trans-unit>
+            <trans-unit id="send.email">
+                <source>send.email</source>
+                <target>Отправить письмо</target>
+            </trans-unit>
+            <trans-unit id="form.user.name">
+                <source>form.user.name</source>
+                <target>Имя пользователя</target>
+            </trans-unit>
+            <trans-unit id="form.user.password">
+                <source>form.user.password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id="form.user.cpassword">
+                <source>form.user.cpassword</source>
+                <target>Подтвердите пароль</target>
+            </trans-unit>
+            <trans-unit id="form.user.email">
+                <source>form.user.email</source>
+                <target>Почта</target>
+            </trans-unit>
+            <trans-unit id="form.signup.password">
+                <source>form.signup.password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id="form.signup.password.repeat">
+                <source>form.signup.password.repeat</source>
+                <target>Повторите пароль</target>
+            </trans-unit>
+            <trans-unit id="Signup">
+                <source>signup</source>
+                <target>Зарегистрироваться</target>
+            </trans-unit>
+            <trans-unit id="signin">
+                <source>signin</source>
+                <target>Авторизоваться</target>
+            </trans-unit>
+            <trans-unit id="psignin">
+                <source>psignin</source>
+                <target>Авторизация</target>
+            </trans-unit>
+            <trans-unit id="form.users.roles">
+                <source>form.user.roles</source>
+                <target>Роль</target>
+            </trans-unit>
+            <trans-unit id="admin">
+                <source>admin</source>
+                <target>Панель управления</target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Пользователи</target>
+            </trans-unit>
+            <trans-unit id="error">
+                <source>error</source>
+                <target>Ошибка</target>
+            </trans-unit>
+            <trans-unit id="daily">
+                <source>daily</source>
+                <target>Ежедневная подписка</target>
+            </trans-unit>
+            <trans-unit id="subscribe">
+                <source>subscribe</source>
+                <target>Подписаться</target>
+            </trans-unit>
+            <trans-unit id="unsubscribe">
+                <source>unsubscribe</source>
+                <target>Отписаться</target>
+            </trans-unit>
+            <trans-unit id="user.username">
+                <source>user.username</source>
+                <target>Логин</target>
+            </trans-unit>
+            <trans-unit id="user.email">
+                <source>user.email</source>
+                <target>Почта</target>
+            </trans-unit>
+            <trans-unit id="user.roles">
+                <source>user.roles</source>
+                <target>Роль</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USER">
+                <source>ROLE_USER</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="USER">
+                <source>USER</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="ADMIN">
+                <source>ADMIN</source>
+                <target>Администратор</target>
+            </trans-unit>
+            <trans-unit id="CONTENT MANAGER">
+                <source>CONTENT MANAGER</source>
+                <target>Контент менеджер</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CONTENT_MANAGER">
+                <source>ROLE_CONTENT_MANAGER</source>
+                <target>Редактор</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ADMIN">
+                <source>ROLE_ADMIN</source>
+                <target>Администратор</target>
+            </trans-unit>
+
+            <trans-unit id="sort">
+                <source>sort</source>
+                <target>Сортировать по</target>
+            </trans-unit>
+            <trans-unit id="subcategories">
+                <source>subcategories</source>
+                <target>Подкатегории</target>
+            </trans-unit>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Категории</target>
+            </trans-unit>
+            <trans-unit id="categories.list">
+                <source>categories.list</source>
+                <target>Список категорий</target>
+            </trans-unit>
+            <trans-unit id="date.up">
+                <source>date.up</source>
+                <target>Свежие новости</target>
+            </trans-unit>
+            <trans-unit id="views.up">
+                <source>views.up</source>
+                <target>Популярыне новости</target>
+            </trans-unit>
+            <trans-unit id="date.down">
+                <source>date.down</source>
+                <target>Старые новости</target>
+            </trans-unit>
+            <trans-unit id="views.down">
+                <source>views.down</source>
+                <target>Непопулярыне новости</target>
+            </trans-unit>
+            <trans-unit id="recovery">
+                <source>recovery</source>
+                <target>Восстановление пароля</target>
+            </trans-unit>
+            <trans-unit id="register">
+                <source>register</source>
+                <target>Регистрация</target>
+            </trans-unit>
+             <trans-unit id="restore.email">
+                <source>restore.email</source>
+                <target>Забыли пароль?</target>
+             </trans-unit>
+            <trans-unit id="failed.activation">
+                <source>failed.activation</source>
+                <target>Ошибка при активации</target>
+            </trans-unit>
+            <trans-unit id="successful.activation">
+                <source>successful.activation</source>
+                <target>Успешная активация</target>
+            </trans-unit>
+            <trans-unit id="mail.check">
+                <source>mail.check</source>
+                <target>Проверьте свою почту для активации аккаунта</target>
+            </trans-unit>
+            <trans-unit id="account.lock">
+                <source>account.lock</source>
+                <target>Ваш аккаунт заблокирован</target>
+            </trans-unit>
+            <trans-unit id="new.password">
+                <source>new.password</source>
+                <target>Новый пароль успешно создан</target>
+            </trans-unit>
+            <trans-unit id="old.token">
+                <source>old.token</source>
+                <target>Слишком старый токен</target>
+            </trans-unit>
+            <trans-unit id="thanks.for.registering">
+                <source>thanks.for.registering</source>
+                <target>Спасибо за регистрацию</target>
+            </trans-unit>
+            <trans-unit id="verify">
+                <source>verify</source>
+                <target>Пожалуйста, подтверидите свою почту для доступа к своему аккаунту  </target>
+            </trans-unit>
+            <trans-unit id="verify.link">
+                <source>verify.link</source>
+                <target>Нажмите сюда для подтверждения аккаунта</target>
+            </trans-unit>
+            <trans-unit id="restore">
+                <source>restore</source>
+                <target>Для восстановления вашего пароля нажмите на ссылку</target>
+            </trans-unit>
+            <trans-unit id="restore.link">
+                <source>restore.link</source>
+                <target>Нажмите сюда</target>
+            </trans-unit>
+            <trans-unit id="restore.title">
+                <source>restore.title</source>
+                <target>Вы пытаетесь восстановить пароль на сайте "News Portal"</target>
+            </trans-unit>
+            <trans-unit id="welcome">
+                <source>welcome</source>
+                <target>Добро пожаловать на News Portal </target>
+            </trans-unit>
+            <trans-unit id="cron.unsubscribe">
+                <source>cron.unsubscribe</source>
+                <target>Вы можете отписаться от ежедневной рассылки в профиле своего аккаунта </target>
+            </trans-unit>
+            <trans-unit id="similar.news">
+                <source>similar.news</source>
+                <target>Похожие новости</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>language</source>
+                <target>Язык</target>
+            </trans-unit>
+            <trans-unit id="language.en">
+                <source>language.en</source>
+                <target>Английский</target>
+            </trans-unit>
+            <trans-unit id="language.ru">
+                <source>language.ru</source>
+                <target>Русский</target>
+            </trans-unit>
+            <trans-unit id="create.new">
+                <source>create.new</source>
+                <target>Создать</target>
+            </trans-unit>
+            <trans-unit id="news.list">
+                <source>news.list</source>
+                <target>Список новостей</target>
+            </trans-unit>
+            <trans-unit id="user.list">
+                <source>user.list</source>
+                <target>Список пользователей</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Удалить</target>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>description</source>
+                <target>Описание</target>
+            </trans-unit>
+            <trans-unit id="save">
+                <source>save</source>
+                <target>Сохранить</target>
+            </trans-unit>
+            <trans-unit id="dispatch">
+                <source>dispatch</source>
+                <target>Рассылка</target>
+            </trans-unit>
+            <trans-unit id="enabled">
+                <source>enabled</source>
+                <target>Активирован</target>
+            </trans-unit>
+            <trans-unit id="id">
+                <source>id</source>
+                <target>Идентификатор</target>
+            </trans-unit>
+            <trans-unit id="author">
+                <source>author</source>
+                <target>Автор</target>
+            </trans-unit>
+            <trans-unit id="count.of.view">
+                <source>count.of.view</source>
+                <target>Количество просмотров</target>
+            </trans-unit>
+            <trans-unit id="date">
+                <source>date</source>
+                <target>Дата создания</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Редактировать</target>
+            </trans-unit>
+            <trans-unit id="already.use.news">
+                <source>already.use.news</source>
+                <target>Новость с таким именем уже существует</target>
+            </trans-unit>
+            <trans-unit id="oops">
+                <source>oops</source>
+                <target>Упс!</target>
+            </trans-unit>
+            <trans-unit id="smg.wrong">
+                <source>smg.wrong</source>
+                <target>Упс, что-то пошло не так!</target>
+            </trans-unit>
+            <trans-unit id="go.away">
+                <source>go.away</source>
+                <target>Убирайся прочь и никогда не возвращайся</target>
+            </trans-unit>
+            <trans-unit id="denied.text">
+                <source>denied.text</source>
+                <target>У нас недостаточно прав для доступа к этой странице</target>
+            </trans-unit>
+            <trans-unit id="denied">
+                <source>denied</source>
+                <target>Отказано в доступе </target>
+            </trans-unit>
+            <trans-unit id="return.homepage">
+                <source>return.homepage</source>
+                <target>Вернуться на домашнюю страницу</target>
+            </trans-unit>
+            <trans-unit id="no.page.text">
+                <source>no.page.text</source>
+                <target>Запрашиваемая страница не найдена. </target>
+            </trans-unit>
+            <trans-unit id="no.page">
+                <source>no.page</source>
+                <target>Страница не найдена </target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

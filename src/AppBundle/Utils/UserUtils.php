@@ -16,25 +16,30 @@ class UserUtils
 {
 
     private $container;
+    private $repositoty;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $doctrine = $this->container->get('doctrine');
+        $this->repositoty = $doctrine->getRepository('AppBundle:User');
     }
 
     public function getUserById(int $userId)
     {
-        $doctrine = $this->container->get('doctrine');
-        $userRepository = $doctrine->getRepository('AppBundle:User');
-        return $userRepository->findOneById($userId);
+        return $this->repositoty->findOneById($userId);
     }
 
+
+    public function deleteUser(int $userId)
+    {
+        $this->repositoty->deleteUserFromDataBase($userId);
+    }
 
     public function saveUser(User $user)
     {
-        $doctrine = $this->container->get('doctrine');
-        $userRepository = $doctrine->getRepository('AppBundle:User');
-        $userRepository->sendToDataBase($user);
+        $this->repositoty->sendToDataBase($user);
     }
+
 
 }

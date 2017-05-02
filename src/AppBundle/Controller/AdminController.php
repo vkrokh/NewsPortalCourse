@@ -16,29 +16,30 @@ use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 
 /**
- * @Route("/admin")
+ * @Route("/{_locale}/admin")
  */
 class AdminController extends Controller
 {
     /**
      * @Route("/category", name="admin_category")
      */
-    public function adminPageCategoryAction(Request $request)
+    public function adminPageCategoryAction()
     {
         return $this->render('admin/adminCategory.html.twig');
     }
+
     /**
      * @Route("/news", name="admin_news")
      */
-    public function adminPageNewsAction(Request $request)
+    public function adminPageNewsAction()
     {
-
         return $this->render('admin/adminNews.html.twig');
     }
+
     /**
      * @Route("/user", name="admin_users")
      */
-    public function adminPageUsersAction(Request $request)
+    public function adminPageUsersAction()
     {
         return $this->render('admin/adminUsers.html.twig');
     }

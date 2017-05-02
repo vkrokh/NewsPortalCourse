@@ -17,11 +17,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
+/**
+ * @Route("/{_locale}/category")
+ */
 class CategoryController extends Controller
 {
 
     /**
-     * @Route("/category/edit/{categoryId}/", name="category_edit")
+     * @Route("/edit/{categoryId}/", name="category_edit")
      */
     public function editCategory(Request $request, int $categoryId)
     {
@@ -46,9 +49,9 @@ class CategoryController extends Controller
 
 
     /**
-     * @Route("/category/delete/{categoryId}/", name="category_delete")
+     * @Route("/delete/{categoryId}/", name="category_delete")
      */
-    public function deleteCategory(Request $request, int $categoryId)
+    public function deleteCategory(int $categoryId)
     {
         $categoryService = $this->get('app.security.showcategory');
         $categoryService->deleteCategory($categoryId);
@@ -56,7 +59,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/category/create/", name="category_create")
+     * @Route("/create/", name="category_create")
      */
     public function createCategory(Request $request)
     {
@@ -81,7 +84,7 @@ class CategoryController extends Controller
 
 
     /**
-     * @Route("/category/{categoryId}/{page}/{sortField}/{sortType}", name="category")
+     * @Route("/{categoryId}/{page}/{sortField}/{sortType}", name="category")
      */
     public function showCategory(
         int $categoryId = 1,

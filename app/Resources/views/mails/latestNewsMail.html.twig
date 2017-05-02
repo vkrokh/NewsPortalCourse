@@ -3,8 +3,11 @@
 
 {% for oneNews in news %}
     <div class="news">
-        <h4>{{ oneNews.name }}</h4>
-        <p>{{ oneNews.description }}</p>
+        <h4>
+            <a href="{{ site }}/en/news/{{ oneNews.id }}">{{ oneNews.name }}</a>
+        </h4>
+
+        <p>{{ oneNews.description|descriptionFilter() }}</p>
     </div>
 {% endfor %}
 

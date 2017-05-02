@@ -21,7 +21,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CategoryRepository")
  * @ORM\Table(name="category")
- * @UniqueEntity(fields="name", message="This category name is already in use")
+ * @UniqueEntity(fields="name", message="already.use.category")
  */
 class Category
 {
