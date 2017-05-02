@@ -330,6 +330,38 @@
                 <source>already.use.news</source>
                 <target>This news name is already in use</target>
             </trans-unit>
+            <trans-unit id="oops">
+                <source>oops</source>
+                <target>Oops!</target>
+            </trans-unit>
+            <trans-unit id="smg.wrong">
+                <source>smg.wrong</source>
+                <target>Oops, something went terribly wrong!</target>
+            </trans-unit>
+            <trans-unit id="go.away">
+                <source>go.away</source>
+                <target>Go away and never go back</target>
+            </trans-unit>
+            <trans-unit id="denied.text">
+                <source>denied.text</source>
+                <target>You don't have permission to access</target>
+            </trans-unit>
+            <trans-unit id="denied">
+                <source>denied</source>
+                <target>Permission denied </target>
+            </trans-unit>
+            <trans-unit id="return.homepage">
+                <source>return.homepage</source>
+                <target>Return to homepage</target>
+            </trans-unit>
+            <trans-unit id="no.page.text">
+                <source>no.page.text</source>
+                <target>The requested page couldn't be located. </target>
+            </trans-unit>
+            <trans-unit id="no.page">
+                <source>no.page</source>
+                <target>Page not found </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

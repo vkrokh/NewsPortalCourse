@@ -2,12 +2,12 @@
 
 
 {% block title %}
-    Ooooops
+    {{ 'oops'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>Oooops, something something went terribly wrong!</h1>
+    <h1>{{ 'go.away'|trans }}</h1>
     <p>
-        <a href="{{ path('homepage') }}"> Go away and never go back</a>.
+        <a href="{{ path('homepage') }}"> {{ 'go.away'|trans }}</a>
     </p>
 {% endblock %}

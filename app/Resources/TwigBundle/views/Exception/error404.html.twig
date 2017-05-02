@@ -2,18 +2,12 @@
 
 
 {% block title %}
-    404 inda house
+    {{ 'no.page'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>Page not found (404)</h1>
-
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {# ... #}
-    {% endif %}
-
+    <h1>{{ 'no.page'|trans }} (404)</h1>
     <p>
-        The requested page couldn't be located. Checkout for any URL
-        misspelling or <a href="{{ path('homepage') }}">return to the homepage</a>.
+        {{ 'no.page.text'|trans }}<a href="{{ path('homepage') }}">{{ 'return.homepage'|trans }}</a>
     </p>
 {% endblock %}
